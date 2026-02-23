@@ -1,6 +1,6 @@
 'use client';
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, ShoppingCart, Package, CreditCard, FileText, Search, Layers, Zap, BarChart3, Globe, Code2, Database } from 'lucide-react';
 import Link from 'next/link';
 const shopifyImg = '/images/shopify-removebg-preview.png';
@@ -26,12 +26,33 @@ const staggerItem = {
   },
 };
 
-/* ── Card wrapper (no tilt) ── */
-function Card({ children, className }) {
+/* ── TiltCard ── */
+function TiltCard({ children, className }) {
+  const ref = useRef(null);
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+  const springX = useSpring(rotateX, { stiffness: 200, damping: 15 });
+  const springY = useSpring(rotateY, { stiffness: 200, damping: 15 });
+
+  const handleMouse = (e) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    rotateX.set(y * -5);
+    rotateY.set(x * 5);
+  };
+
   return (
-    <div className={className}>
+    <motion.div
+      ref={ref}
+      style={{ rotateX: springX, rotateY: springY, transformPerspective: 1200 }}
+      onMouseMove={handleMouse}
+      onMouseLeave={() => { rotateX.set(0); rotateY.set(0); }}
+      className={className}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }
 
@@ -289,7 +310,7 @@ export default function Solutions() {
             const Preview = previewMap[offer.id];
             return (
               <motion.div key={offer.id} variants={staggerItem}>
-                <Card
+                <TiltCard
                   className={`relative rounded-2xl p-6 md:p-7 flex flex-col h-full transition-all duration-300 ${
                     offer.badge
                       ? 'pt-10 md:pt-11 bg-gray-50 dark:bg-white/[0.06] border-2 border-[#0066FF]/30 dark:border-[#0066FF]/40 shadow-xl shadow-[#0066FF]/5 dark:shadow-[#0066FF]/10 ring-1 ring-[#0066FF]/10'
@@ -357,7 +378,7 @@ export default function Solutions() {
                       </span>
                     </motion.div>
                   </Link>
-                </Card>
+                </TiltCard>
               </motion.div>
             );
           })}

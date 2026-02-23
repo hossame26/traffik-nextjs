@@ -44,7 +44,7 @@ const AnimatedTitle = ({ text, className }) => {
       {letters.map((letter, i) => (
         <Motion.span
           key={i}
-          initial={{ opacity: 1, y: 0, rotateX: 0 }}
+          initial={{ opacity: 0, y: 20, rotateX: -90 }}
           whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
           viewport={{ once: true }}
           transition={{
@@ -63,57 +63,58 @@ const AnimatedTitle = ({ text, className }) => {
   );
 };
 
+// Static image paths (Next.js public directory)
+const cremyaImg = '/images/projects/cremya.webp';
+const shonensportsImg = '/images/projects/shonensports.webp';
+const mentaliteFocusImg = '/images/projects/focusbusiness.webp';
 const novaImg = '/images/projects/nova.jpg';
 const helixImg = '/images/projects/helix.jpg';
-const mentaliteImg = '/images/projects/focusbusiness.webp';
-const cremyaImg = '/images/projects/cremya.webp';
-const nutri7Img = '/images/projects/nutri7.jpg';
 
 const projects = [
   {
-    title: "Nova Studio",
-    category: "Site Vitrine",
-    url: "#",
-    image: novaImg,
-    description: "Agence créative 3D. Expérience immersive avec galaxie 3D interactive, scroll storytelling et effets de post-processing en temps réel.",
-    details: "Site vitrine immersif avec galaxie 3D interactive, scroll storytelling et effets de post-processing en temps réel. Next.js 16, Three.js, React Three Fiber, Framer Motion.",
-    year: "2026"
+    title: "Cremya",
+    category: "E-commerce • Food",
+    url: "https://cremya.fr",
+    image: cremyaImg,
+    description: "Crèmes de miel gourmandes. Une expérience d'achat ludique et premium.",
+    details: "Boutique e-commerce avec configurateur de pack personnalisé. Design moderne aux couleurs chaudes avec animations fluides et effets visuels gourmands qui boostent les conversions.",
+    year: "2025"
   },
   {
-    title: "Helix Lab",
-    category: "Site Vitrine",
-    url: "#",
-    image: helixImg,
-    description: "Lab scientifique. Interface futuriste pour laboratoire de recherche avec ADN 3D animé, scan lines et esthétique sci-fi.",
-    details: "Interface futuriste pour laboratoire de recherche avec ADN 3D animé, scan lines et esthétique sci-fi. Next.js 16, Three.js, Postprocessing, Framer Motion.",
-    year: "2026"
+    title: "Shonen Sports",
+    category: "E-commerce • Branding",
+    url: "https://shonensports.com",
+    image: shonensportsImg,
+    description: "Fusion entre culture anime et performance sportive. Expérience d'achat immersive.",
+    details: "Refonte complète de l'identité visuelle et migration vers Shopify Plus. Intégration de vidéos 3D et augmentation du panier moyen de 25%.",
+    year: "2024"
   },
   {
     title: "Mentalité Focus",
-    category: "Plateforme SaaS",
+    category: "SaaS • Membership",
     url: "https://mentalitefocus.com",
-    image: mentaliteImg,
-    description: "Membership premium. Plateforme pour entrepreneurs avec espace membres, paiements Stripe, livestreams quotidiens et communauté Discord.",
-    details: "Plateforme membership premium pour entrepreneurs. Espace membres, paiements Stripe, livestreams quotidiens et communauté Discord. Next.js 15, Prisma, PostgreSQL, Stripe, NextAuth.",
-    year: "2025"
+    image: mentaliteFocusImg,
+    description: "Communauté d'entrepreneurs. Networking, lives quotidiens, ressources premium.",
+    details: "Plateforme de membership pour entrepreneurs avec espace membre, paiements Stripe, 5 lives/semaine, communauté Discord +1000 membres. Design premium avec animations et cards interactives.",
+    year: "2026"
   },
   {
-    title: "Cremya",
-    category: "E-commerce",
-    url: "https://cremya.fr",
-    image: cremyaImg,
-    description: "Marque beauté. Site e-commerce au design organique avec animations fluides et fiches produit interactives.",
-    details: "Site e-commerce au design organique avec animations fluides et fiches produit interactives. HTML/CSS/JS, CSS Animations, SVG, Responsive.",
-    year: "2025"
+    title: "NOVA Creative Studio",
+    category: "React • Creative",
+    url: "#",
+    image: novaImg,
+    description: "Studio créatif digital avec effets de particules 3D et animations immersives.",
+    details: "Site vitrine immersif pour un studio créatif. Effets de particules WebGL, animations fluides Framer Motion et design dark premium. Expérience full-screen pensée pour impressionner dès la première seconde.",
+    year: "2026"
   },
   {
-    title: "Nutri7",
-    category: "E-commerce",
-    url: "https://nutri7.fr",
-    image: nutri7Img,
-    description: "Compléments naturels. Plateforme e-commerce au design raffiné avec animations subtiles et badges de certification.",
-    details: "Plateforme e-commerce au design raffiné avec animations subtiles et badges de certification. HTML/CSS/JS, Responsive, E-commerce.",
-    year: "2025"
+    title: "HELIX Genomics",
+    category: "React • Science",
+    url: "#",
+    image: helixImg,
+    description: "Plateforme de recherche génomique avec visualisation ADN 3D interactive.",
+    details: "Site web pour un laboratoire de génomique avancée. Visualisation ADN 3D en temps réel, dashboard recherche interactif et interface sci-fi. Design dark immersif avec données live.",
+    year: "2026"
   }
 ];
 
@@ -222,12 +223,18 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 md:mb-10">
-          <span
+          <Motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="inline-block px-3 py-1 rounded-full bg-[#0066FF]/10 text-[#0066FF] text-[9px] font-bold tracking-[0.2em] uppercase mb-4"
           >
             Portfolio
-          </span>
-          <h2
+          </Motion.span>
+          <Motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold tracking-tight text-black dark:text-white mb-6"
           >
             Nos{' '}
@@ -235,16 +242,22 @@ export default function Projects() {
               text="Réalisations"
               className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-purple-600"
             />
-          </h2>
-          <p
+          </Motion.h2>
+          <Motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="text-gray-500 dark:text-gray-400 text-sm md:text-base max-w-lg mx-auto"
           >
             Des projets qui génèrent des résultats concrets pour nos clients.
-          </p>
+          </Motion.p>
         </div>
 
         {/* MacBook Carousel */}
-        <div
+        <Motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="relative"
         >
           <MacBookMockup>
@@ -323,7 +336,7 @@ export default function Projects() {
           >
             <ChevronRight className="w-5 h-5" />
           </Motion.button>
-        </div>
+        </Motion.div>
 
         {/* Dots Navigation */}
         <div className="flex justify-center gap-2 mt-8">
@@ -351,7 +364,10 @@ export default function Projects() {
         </div>
 
         {/* Project Quick Info */}
-        <div
+        <Motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4"
         >
           <Motion.button
@@ -370,7 +386,7 @@ export default function Projects() {
           >
             LANCER MON PROJET <ArrowUpRight className="w-4 h-4" />
           </Motion.a>
-        </div>
+        </Motion.div>
       </div>
 
       {/* --- MODAL SYSTEM --- */}

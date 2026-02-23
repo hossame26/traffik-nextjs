@@ -149,7 +149,7 @@ function TechIcons() {
       {technologies.map((tech, i) => (
         <motion.div
           key={i}
-          initial={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.1 }}
@@ -187,7 +187,9 @@ export default function Testimonials() {
     >
       <div className="max-w-7xl mx-auto">
         {/* Stats - Design minimaliste */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="grid grid-cols-4 gap-2 md:gap-8 lg:gap-16 mb-12 md:mb-16 py-4 md:py-8"
         >
           {[
@@ -196,8 +198,11 @@ export default function Testimonials() {
             { value: "24", suffix: "h", label: "Réponse" },
             { value: "30", suffix: "j", label: "Support" },
           ].map((stat, i) => (
-            <div
+            <motion.div
               key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.1 }}
               className="text-center"
             >
               <div className="text-2xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-purple mb-0.5 md:mb-1">
@@ -206,19 +211,24 @@ export default function Testimonials() {
               <div className="text-[10px] md:text-sm text-gray-500 dark:text-gray-400 font-medium">
                 {stat.label}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Header */}
         <div className="text-center mb-8">
-          <span
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-6"
           >
             Témoignages
-          </span>
+          </motion.span>
 
-          <h2
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tightest text-black dark:text-white mb-6"
           >
             Des résultats concrets,
@@ -226,13 +236,16 @@ export default function Testimonials() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-purple">
               des clients satisfaits.
             </span>
-          </h2>
+          </motion.h2>
 
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
             className="text-gray-500 dark:text-gray-400 text-base md:text-lg max-w-xl mx-auto"
           >
             Entrepreneurs, artisans, startups - ils ont tous boosté leur activité avec nous.
-          </p>
+          </motion.p>
         </div>
 
         {/* Horizontal Carousel */}
@@ -275,17 +288,23 @@ export default function Testimonials() {
         </div>
 
         {/* Tech Icons */}
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.4 }}
           className="pt-8 border-t border-gray-200 dark:border-white/5"
         >
           <p className="text-center text-xs text-gray-400 uppercase tracking-[0.2em] mb-6 font-medium">
             Technologies utilisées
           </p>
           <TechIcons />
-        </div>
+        </motion.div>
 
         {/* Guarantee Badge */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.5 }}
           className="mt-6 flex justify-center"
         >
           <div className="inline-flex items-center gap-5 px-8 py-5 rounded-2xl bg-gradient-to-r from-primary/5 to-accent-purple/5 border border-primary/10">
@@ -300,10 +319,13 @@ export default function Testimonials() {
               <div className="text-sm text-gray-500 dark:text-gray-400">Support inclus + modifications illimitées</div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* CTA Button */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6 }}
           className="mt-6 text-center"
         >
           <motion.a
@@ -315,7 +337,7 @@ export default function Testimonials() {
             Rejoindre nos clients satisfaits
             <ChevronRight className="w-4 h-4" />
           </motion.a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
