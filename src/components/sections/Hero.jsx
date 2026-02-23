@@ -302,11 +302,11 @@ function DesktopHero() {
 
   const ringScale = useTransform(scrollYProgress, [0, 1], [1, 3.2]);
   const ringOpacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 1, 0.6]);
-  const phase0 = useTransform(scrollYProgress, [0, 0.08, 0.16], [1, 1, 0]);
-  const phase1 = useTransform(scrollYProgress, [0.14, 0.21, 0.34, 0.40], [0, 1, 1, 0]);
-  const phase2 = useTransform(scrollYProgress, [0.38, 0.44, 0.57, 0.63], [0, 1, 1, 0]);
-  const phase3 = useTransform(scrollYProgress, [0.61, 0.67, 0.79, 0.85], [0, 1, 1, 0]);
-  const phase4 = useTransform(scrollYProgress, [0.83, 0.94], [0, 1]);
+  const phase0 = useTransform(scrollYProgress, [0, 0.12, 0.20], [1, 1, 0]);
+  const phase1 = useTransform(scrollYProgress, [0.18, 0.24, 0.38, 0.44], [0, 1, 1, 0]);
+  const phase2 = useTransform(scrollYProgress, [0.42, 0.48, 0.60, 0.66], [0, 1, 1, 0]);
+  const phase3 = useTransform(scrollYProgress, [0.64, 0.70, 0.82, 0.88], [0, 1, 1, 0]);
+  const phase4 = useTransform(scrollYProgress, [0.86, 0.94], [0, 1]);
   const fogOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
 
   return (
@@ -335,7 +335,7 @@ function DesktopHero() {
           <div className="text-center max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="inline-flex items-center gap-2 border border-[#0066FF]/30 bg-[#0066FF]/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] mb-8 uppercase text-[#0066FF]"
             >
               <span className="relative flex h-2 w-2">
@@ -346,26 +346,26 @@ function DesktopHero() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.4, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-[-0.05em] text-gray-900 dark:text-white mb-5"
             >
               Traffik
             </motion.h1>
 
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.1 }}
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }}
               className="text-gray-500 dark:text-gray-400 text-sm md:text-base lg:text-lg max-w-lg mx-auto mb-4">
               Sites web qui génèrent du{' '}
               <span className="text-gray-900 dark:text-white font-semibold">chiffre d'affaires</span>.
               Pas juste des pixels.
             </motion.p>
 
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 1.4 }}
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}
               className="text-[11px] text-gray-400 dark:text-gray-600 uppercase tracking-[0.15em] mb-10">
               Création de sites web &middot; Design &middot; Développement
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.6 }}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-3 justify-center pointer-events-auto">
               <motion.a href="#contact"
                 whileHover={{ scale: 1.05, boxShadow: '0 20px 40px -8px rgba(0,102,255,0.5)' }}
@@ -465,8 +465,19 @@ function DesktopHero() {
 // ═══════════════════════════════════════════════════════════
 
 export default function Hero() {
-  const [isMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    setMounted(true);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // SSR: render desktop by default, switch after mount
+  if (!mounted) return <DesktopHero />;
   if (isMobile) return <MobileHero />;
   return <DesktopHero />;
 }
