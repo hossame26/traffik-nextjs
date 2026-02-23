@@ -202,7 +202,10 @@ function MobileHero() {
       <div className="absolute inset-0 bg-noise opacity-[0.02] dark:opacity-[0.03] pointer-events-none" />
 
       <div className="relative z-10 text-center max-w-lg">
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="inline-flex items-center gap-2 border border-[#0066FF]/30 bg-[#0066FF]/10 px-4 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] mb-6 uppercase text-[#0066FF]"
         >
           <span className="relative flex h-2 w-2">
@@ -210,29 +213,41 @@ function MobileHero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0066FF]" />
           </span>
           Agence Web & Marketing
-        </div>
+        </motion.div>
 
-        <h1
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl font-black tracking-[-0.05em] text-gray-900 dark:text-white mb-4"
         >
           Traffik
-        </h1>
+        </motion.h1>
 
-        <p
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="text-gray-500 dark:text-gray-400 text-sm max-w-sm mx-auto mb-3"
         >
           Sites web qui génèrent du{' '}
-          <span className="text-gray-900 dark:text-white font-semibold">chiffre d'affaires</span>.
+          <span className="text-gray-900 dark:text-white font-semibold">chiffre d&apos;affaires</span>.
           Pas juste des pixels.
-        </p>
+        </motion.p>
 
-        <p
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="text-[11px] text-gray-400 dark:text-gray-600 uppercase tracking-[0.15em] mb-8"
         >
           Création de sites web &middot; Design &middot; Développement
-        </p>
+        </motion.p>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="flex flex-col gap-3"
         >
           <a
@@ -248,9 +263,12 @@ function MobileHero() {
           >
             VOIR NOS OFFRES
           </a>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
           className="flex gap-8 justify-center mt-10 pt-6 border-t border-gray-200 dark:border-white/10"
         >
           {[
@@ -263,7 +281,7 @@ function MobileHero() {
               <div className="text-[9px] text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-1">{stat.label}</div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -315,7 +333,10 @@ function DesktopHero() {
         {/* Phase 0 */}
         <motion.div style={{ opacity: phase0 }} className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6 pointer-events-none">
           <div className="text-center max-w-3xl">
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
               className="inline-flex items-center gap-2 border border-[#0066FF]/30 bg-[#0066FF]/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] mb-8 uppercase text-[#0066FF]"
             >
               <span className="relative flex h-2 w-2">
@@ -323,27 +344,39 @@ function DesktopHero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0066FF]" />
               </span>
               Agence Web & Marketing
-            </div>
+            </motion.div>
 
-            <h1
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.4, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-[-0.05em] text-gray-900 dark:text-white mb-5"
             >
               Traffik
-            </h1>
+            </motion.h1>
 
-            <p
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.1 }}
               className="text-gray-500 dark:text-gray-400 text-sm md:text-base lg:text-lg max-w-lg mx-auto mb-4">
               Sites web qui génèrent du{' '}
-              <span className="text-gray-900 dark:text-white font-semibold">chiffre d'affaires</span>.
+              <span className="text-gray-900 dark:text-white font-semibold">chiffre d&apos;affaires</span>.
               Pas juste des pixels.
-            </p>
+            </motion.p>
 
-            <p
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
               className="text-[11px] text-gray-400 dark:text-gray-600 uppercase tracking-[0.15em] mb-10">
               Création de sites web &middot; Design &middot; Développement
-            </p>
+            </motion.p>
 
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.6 }}
               className="flex flex-col sm:flex-row gap-3 justify-center pointer-events-auto">
               <motion.a href="#contact"
                 whileHover={{ scale: 1.05, boxShadow: '0 20px 40px -8px rgba(0,102,255,0.5)' }}
@@ -358,15 +391,19 @@ function DesktopHero() {
                 className="bg-white/80 dark:bg-white/[0.03] border border-gray-200 dark:border-white/10 backdrop-blur-md px-8 py-4 rounded-full text-[11px] font-bold tracking-widest transition-all flex items-center gap-2 text-gray-900 dark:text-white justify-center">
                 VOIR NOS OFFRES
               </motion.a>
-            </div>
+            </motion.div>
 
-            <div className="mt-14">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.5 }}
+              className="mt-14">
               <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
                 className="flex flex-col items-center">
                 <span className="text-[9px] uppercase tracking-[0.2em] text-gray-400 dark:text-gray-600">Scroll</span>
                 <div className="w-[1px] h-8 mt-2 bg-gradient-to-b from-[#0066FF]/60 to-transparent" />
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
 
