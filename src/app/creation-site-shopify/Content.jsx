@@ -150,7 +150,7 @@ export default function ShopifyContent() {
             Votre boutique Shopify{' '}<span className="text-[#0066FF]">clé en main</span>
           </h1>
           <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mb-8">Prête à vendre en 5 jours. Design pro, paiement sécurisé, zéro prise de tête.</p>
-          <motion.a href="https://wa.me/33635505374?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20cr%C3%A9ation%20d%27une%20boutique%20Shopify." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-[#0066FF] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#0066FF]/25 transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+          <motion.a href="https://wa.me/33756881246?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20cr%C3%A9ation%20d%27une%20boutique%20Shopify." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-[#0066FF] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#0066FF]/25 transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp
           </motion.a>
         </motion.div>
@@ -189,7 +189,7 @@ export default function ShopifyContent() {
                     <ul className="space-y-2.5 mb-6 flex-1">
                       {plan.features.map((feature, i) => (<li key={i} className="flex items-start gap-2.5 text-sm"><Check className="w-4 h-4 text-[#0066FF] mt-0.5 flex-shrink-0" /><span className="text-gray-600 dark:text-gray-300">{feature}</span></li>))}
                     </ul>
-                    <motion.a href={`https://wa.me/33635505374?text=${encodeURIComponent(`Bonjour, je suis intéressé par le forfait Shopify ${plan.name}. Pouvez-vous m'envoyer un devis ?`)}`} target="_blank" rel="noopener noreferrer" className={`w-full py-3 rounded-xl font-semibold text-center text-sm transition-all block ${plan.popular ? 'bg-[#0066FF] text-white hover:bg-[#0055DD] shadow-lg shadow-[#0066FF]/25' : 'bg-gray-900 dark:bg-white/10 text-white hover:bg-gray-800 dark:hover:bg-white/[0.15] border border-transparent dark:border-white/[0.06]'}`} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Demander un devis</motion.a>
+                    <motion.a href={`https://wa.me/33756881246?text=${encodeURIComponent(`Bonjour, je suis intéressé par le forfait Shopify ${plan.name}. Pouvez-vous m'envoyer un devis ?`)}`} target="_blank" rel="noopener noreferrer" className={`w-full py-3 rounded-xl font-semibold text-center text-sm transition-all block ${plan.popular ? 'bg-[#0066FF] text-white hover:bg-[#0055DD] shadow-lg shadow-[#0066FF]/25' : 'bg-gray-900 dark:bg-white/10 text-white hover:bg-gray-800 dark:hover:bg-white/[0.15] border border-transparent dark:border-white/[0.06]'}`} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Demander un devis</motion.a>
                   </motion.div>
                 );
               })}
@@ -234,7 +234,7 @@ export default function ShopifyContent() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center rounded-3xl bg-gradient-to-br from-[#0066FF] to-blue-700 p-10 md:p-14">
           <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Prêt à lancer votre boutique ?</h2>
           <p className="text-blue-100 mb-8 max-w-lg mx-auto">Réponse sous 2h, devis sous 24h. Pas d&apos;engagement.</p>
-          <motion.a href="https://wa.me/33635505374" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0066FF] font-bold rounded-full hover:shadow-xl transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+          <motion.a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0066FF] font-bold rounded-full hover:shadow-xl transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp
           </motion.a>
         </motion.div>

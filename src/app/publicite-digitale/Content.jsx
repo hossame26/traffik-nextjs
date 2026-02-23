@@ -33,7 +33,7 @@ export default function PubliciteContent() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">Publicité Digitale{' '}<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-purple-600">Facebook Ads & Google Ads</span></h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mb-8">Générez des clients et du chiffre d&apos;affaires avec des campagnes Facebook Ads, Google Ads et TikTok Ads gérées de A à Z.</p>
           <div className="flex flex-wrap gap-4">
-            <motion.a href="https://wa.me/33635505374" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0066FF] text-white font-bold shadow-lg shadow-[#0066FF]/25 hover:shadow-[#0066FF]/40 transition-shadow" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}><MessageCircle className="w-5 h-5" /> Discuter de mon projet</motion.a>
+            <motion.a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0066FF] text-white font-bold shadow-lg shadow-[#0066FF]/25 hover:shadow-[#0066FF]/40 transition-shadow" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}><MessageCircle className="w-5 h-5" /> Discuter de mon projet</motion.a>
             <Link href="/tarifs" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-gray-200 dark:border-white/10 text-black dark:text-white font-bold hover:border-[#0066FF] hover:text-[#0066FF] transition-colors"><DollarSign className="w-5 h-5" /> Voir les tarifs</Link>
           </div>
         </motion.div>
@@ -99,7 +99,7 @@ export default function PubliciteContent() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Prêt à lancer vos campagnes ?</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">Premier échange gratuit et sans engagement. On analyse votre marché et on vous propose un plan d&apos;action concret.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.a href="https://wa.me/33635505374" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold shadow-lg shadow-[#25D366]/25" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}><MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp</motion.a>
+            <motion.a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold shadow-lg shadow-[#25D366]/25" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}><MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp</motion.a>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}><Link href="/tarifs" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#0066FF] to-purple-600 text-white font-bold shadow-lg shadow-[#0066FF]/25">Voir les tarifs <ArrowRight className="w-5 h-5" /></Link></motion.div>
           </div>
         </motion.section>

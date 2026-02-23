@@ -72,7 +72,7 @@ export default async function CityServicePage({ params }) {
     name: 'Traffik Web',
     description: `${service.name} à ${city.name} - Freelance web en France`,
     url: `https://traffik-web.fr/${service.slug}-${city.slug}`,
-    telephone: '+33635505374',
+    telephone: '+33756881246',
     areaServed: {
       '@type': 'City',
       name: city.name,

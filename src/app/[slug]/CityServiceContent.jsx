@@ -227,7 +227,7 @@ export default function CityServiceContent({ service, city }) {
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://wa.me/33635505374"
+              href="https://wa.me/33756881246"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-[#0066FF] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#0055DD] transition-colors"
@@ -319,7 +319,7 @@ export default function CityServiceContent({ service, city }) {
             </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
-                href="https://wa.me/33635505374"
+                href="https://wa.me/33756881246"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#0066FF] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#0055DD] transition-colors"
@@ -402,7 +402,7 @@ export default function CityServiceContent({ service, city }) {
               Contactez-nous sur WhatsApp pour discuter de votre projet de {service.name.toLowerCase()} à {city.name}. Devis gratuit en 24h.
             </p>
             <a
-              href="https://wa.me/33635505374"
+              href="https://wa.me/33756881246"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#0066FF] text-white px-10 py-4 rounded-xl font-semibold text-lg hover:bg-[#0055DD] transition-colors"

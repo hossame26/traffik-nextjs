@@ -80,7 +80,7 @@ export default function BlogListContent({ articles }) {
             Discutons de votre projet gratuitement sur WhatsApp.
           </p>
           <a
-            href="https://wa.me/33635505374"
+            href="https://wa.me/33756881246"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-full text-sm font-bold tracking-wide transition-all shadow-lg shadow-[#0066FF]/30"

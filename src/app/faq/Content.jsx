@@ -78,7 +78,7 @@ export default function FAQContent() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mt-12 p-8 rounded-3xl bg-gradient-to-br from-[#0066FF] to-purple-700">
           <h2 className="text-xl md:text-2xl font-bold text-white mb-3">Vous avez d&apos;autres questions ?</h2>
           <p className="text-blue-100 mb-6">Réponse sous 2h, pas d&apos;engagement.</p>
-          <motion.a href="https://wa.me/33635505374" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0066FF] font-bold rounded-full hover:shadow-xl transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+          <motion.a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0066FF] font-bold rounded-full hover:shadow-xl transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp
           </motion.a>
         </motion.div>

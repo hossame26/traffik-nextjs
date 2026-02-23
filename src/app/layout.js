@@ -71,8 +71,8 @@ export default function RootLayout({ children }) {
               "priceRange": "€€",
               "address": { "@type": "PostalAddress", "addressCountry": "FR", "addressRegion": "France" },
               "geo": { "@type": "GeoCoordinates", "latitude": "48.8566", "longitude": "2.3522" },
-              "contactPoint": { "@type": "ContactPoint", "telephone": "+33635505374", "contactType": "customer service", "availableLanguage": ["French", "English"] },
-              "sameAs": ["https://wa.me/33635505374"],
+              "contactPoint": { "@type": "ContactPoint", "telephone": "+33756881246", "contactType": "customer service", "availableLanguage": ["French", "English"] },
+              "sameAs": ["https://wa.me/33756881246"],
               "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00" }
             }),
           }}

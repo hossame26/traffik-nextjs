@@ -85,7 +85,7 @@ export default function WordPressContent() {
           </div>
           <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5 text-gray-900 dark:text-white">Votre site WordPress{' '}<span className="text-[#0066FF]">professionnel</span></h1>
           <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mb-8">Site vitrine ou e-commerce, livré en 5 jours. Design pro, SEO optimisé, 100% autonome.</p>
-          <motion.a href="https://wa.me/33635505374?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20cr%C3%A9ation%20d%27un%20site%20WordPress." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-[#0066FF] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#0066FF]/25 transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}><MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp</motion.a>
+          <motion.a href="https://wa.me/33756881246?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20cr%C3%A9ation%20d%27un%20site%20WordPress." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-[#0066FF] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#0066FF]/25 transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}><MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp</motion.a>
         </motion.div>
 
         {/* Pricing */}
@@ -111,7 +111,7 @@ export default function WordPressContent() {
                     <div className="flex items-center gap-3 mb-4"><div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0066FF]/20 to-purple-600/20 flex items-center justify-center"><Icon className="w-5 h-5 text-[#0066FF]" /></div><div><h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight">{plan.name}</h3><p className="text-xs text-gray-500 dark:text-gray-400">{plan.description}</p></div></div>
                     <div className="mb-5"><span className="text-xs text-gray-400 dark:text-gray-500">À partir de</span><div className="flex items-baseline gap-1"><span className="text-4xl font-extrabold text-gray-900 dark:text-white">{plan.price}EUR</span></div></div>
                     <ul className="space-y-2.5 mb-6 flex-1">{plan.features.map((feature, i) => (<li key={i} className="flex items-start gap-2.5 text-sm"><Check className="w-4 h-4 text-[#0066FF] mt-0.5 flex-shrink-0" /><span className="text-gray-600 dark:text-gray-300">{feature}</span></li>))}</ul>
-                    <motion.a href={`https://wa.me/33635505374?text=${encodeURIComponent(`Bonjour, je suis intéressé par l'offre WordPress ${plan.name}. Pouvez-vous m'envoyer un devis ?`)}`} target="_blank" rel="noopener noreferrer" className={`w-full py-3 rounded-xl font-semibold text-center text-sm transition-all block ${plan.popular ? 'bg-[#0066FF] text-white hover:bg-[#0055DD] shadow-lg shadow-[#0066FF]/25' : 'bg-gray-900 dark:bg-white/10 text-white hover:bg-gray-800 dark:hover:bg-white/[0.15] border border-transparent dark:border-white/[0.06]'}`} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Demander un devis</motion.a>
+                    <motion.a href={`https://wa.me/33756881246?text=${encodeURIComponent(`Bonjour, je suis intéressé par l'offre WordPress ${plan.name}. Pouvez-vous m'envoyer un devis ?`)}`} target="_blank" rel="noopener noreferrer" className={`w-full py-3 rounded-xl font-semibold text-center text-sm transition-all block ${plan.popular ? 'bg-[#0066FF] text-white hover:bg-[#0055DD] shadow-lg shadow-[#0066FF]/25' : 'bg-gray-900 dark:bg-white/10 text-white hover:bg-gray-800 dark:hover:bg-white/[0.15] border border-transparent dark:border-white/[0.06]'}`} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Demander un devis</motion.a>
                   </motion.div>
                 );
               })}
@@ -141,7 +141,7 @@ export default function WordPressContent() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center rounded-3xl bg-gradient-to-br from-[#0066FF] to-blue-700 p-10 md:p-14">
           <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Prêt à lancer votre site WordPress ?</h2>
           <p className="text-blue-100 mb-8 max-w-lg mx-auto">Réponse sous 2h, devis sous 24h. Pas d&apos;engagement.</p>
-          <motion.a href="https://wa.me/33635505374" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0066FF] font-bold rounded-full hover:shadow-xl transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}><MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp</motion.a>
+          <motion.a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0066FF] font-bold rounded-full hover:shadow-xl transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}><MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp</motion.a>
         </motion.div>
       </div>
     </div>

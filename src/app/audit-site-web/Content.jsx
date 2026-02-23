@@ -131,7 +131,7 @@ function ServiceModal({ service, onClose }) {
         {/* Footer CTA */}
         <div className="p-6 pt-4 border-t border-gray-100 dark:border-white/[0.06]">
           <motion.a
-            href={`https://wa.me/33635505374?text=${encodeURIComponent(service.waMsg)}`}
+            href={`https://wa.me/33756881246?text=${encodeURIComponent(service.waMsg)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white font-bold text-sm shadow-lg shadow-[#25D366]/20"
@@ -345,7 +345,7 @@ export default function Content() {
 
           <div className="flex flex-wrap gap-3">
             <motion.a
-              href="https://wa.me/33635505374?text=Bonjour%2C%20je%20souhaite%20un%20audit%20de%20mon%20site%20web."
+              href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20un%20audit%20de%20mon%20site%20web."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] text-white font-bold text-sm shadow-lg shadow-[#25D366]/20"
@@ -427,7 +427,7 @@ export default function Content() {
                   </ul>
 
                   <motion.a
-                    href={`https://wa.me/33635505374?text=${encodeURIComponent(`Bonjour, je suis intéressé par l'offre ${plan.name}. Pouvez-vous m'envoyer un devis ?`)}`}
+                    href={`https://wa.me/33756881246?text=${encodeURIComponent(`Bonjour, je suis intéressé par l'offre ${plan.name}. Pouvez-vous m'envoyer un devis ?`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-full py-3 rounded-xl font-semibold text-center text-sm block ${
@@ -617,7 +617,7 @@ export default function Content() {
             Diagnostic complet sous 24h. Premier échange gratuit.
           </p>
           <motion.a
-            href="https://wa.me/33635505374?text=Bonjour%2C%20je%20souhaite%20un%20audit%20de%20mon%20site%20web."
+            href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20un%20audit%20de%20mon%20site%20web."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-sm shadow-lg shadow-[#25D366]/20"

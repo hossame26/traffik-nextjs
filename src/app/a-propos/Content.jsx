@@ -337,7 +337,7 @@ export default function AProposContent() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
-              href="https://wa.me/33635505374"
+              href="https://wa.me/33756881246"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 transition-shadow"

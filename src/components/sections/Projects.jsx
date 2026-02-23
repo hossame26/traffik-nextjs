@@ -63,57 +63,57 @@ const AnimatedTitle = ({ text, className }) => {
   );
 };
 
-const cremyaImg = '/images/projects/cremya.webp';
-const shonensportsImg = '/images/projects/shonensports.webp';
-const focusbusinessImg = '/images/projects/focusbusiness.webp';
 const novaImg = '/images/projects/nova.jpg';
 const helixImg = '/images/projects/helix.jpg';
+const mentaliteImg = '/images/projects/focusbusiness.webp';
+const cremyaImg = '/images/projects/cremya.webp';
+const nutri7Img = '/images/projects/nutri7.jpg';
 
 const projects = [
   {
-    title: "Cremya",
-    category: "E-commerce • Food",
-    url: "https://cremya.fr",
-    image: cremyaImg,
-    description: "Crèmes de miel gourmandes. Une expérience d'achat ludique et premium.",
-    details: "Boutique e-commerce avec configurateur de pack personnalisé. Design moderne aux couleurs chaudes avec animations fluides et effets visuels gourmands qui boostent les conversions.",
-    year: "2025"
-  },
-  {
-    title: "Shonen Sports",
-    category: "E-commerce • Branding",
-    url: "https://shonensports.com",
-    image: shonensportsImg,
-    description: "Fusion entre culture anime et performance sportive. Expérience d'achat immersive.",
-    details: "Refonte complète de l'identité visuelle et migration vers Shopify Plus. Intégration de vidéos 3D et augmentation du panier moyen de 25%.",
-    year: "2024"
-  },
-  {
-    title: "Focus Business",
-    category: "SaaS • Productivité",
-    url: "https://focus-business.com",
-    image: focusbusinessImg,
-    description: "Restez concentré sur l'essentiel. Productivité maximale, design premium.",
-    details: "Plateforme de gestion du temps et productivité au design sombre et sophistiqué. Interface minimaliste avec gradients élégants pour une expérience professionnelle haut de gamme.",
-    year: "2025"
-  },
-  {
-    title: "NOVA Creative Studio",
-    category: "React • Creative",
+    title: "Nova Studio",
+    category: "Site Vitrine",
     url: "#",
     image: novaImg,
-    description: "Studio créatif digital avec effets de particules 3D et animations immersives.",
-    details: "Site vitrine immersif pour un studio créatif. Effets de particules WebGL, animations fluides Framer Motion et design dark premium. Expérience full-screen pensée pour impressionner dès la première seconde.",
+    description: "Agence créative 3D. Expérience immersive avec galaxie 3D interactive, scroll storytelling et effets de post-processing en temps réel.",
+    details: "Site vitrine immersif avec galaxie 3D interactive, scroll storytelling et effets de post-processing en temps réel. Next.js 16, Three.js, React Three Fiber, Framer Motion.",
     year: "2026"
   },
   {
-    title: "HELIX Genomics",
-    category: "React • Science",
+    title: "Helix Lab",
+    category: "Site Vitrine",
     url: "#",
     image: helixImg,
-    description: "Plateforme de recherche génomique avec visualisation ADN 3D interactive.",
-    details: "Site web pour un laboratoire de génomique avancée. Visualisation ADN 3D en temps réel, dashboard recherche interactif et interface sci-fi. Design dark immersif avec données live.",
+    description: "Lab scientifique. Interface futuriste pour laboratoire de recherche avec ADN 3D animé, scan lines et esthétique sci-fi.",
+    details: "Interface futuriste pour laboratoire de recherche avec ADN 3D animé, scan lines et esthétique sci-fi. Next.js 16, Three.js, Postprocessing, Framer Motion.",
     year: "2026"
+  },
+  {
+    title: "Mentalité Focus",
+    category: "Plateforme SaaS",
+    url: "https://mentalitefocus.com",
+    image: mentaliteImg,
+    description: "Membership premium. Plateforme pour entrepreneurs avec espace membres, paiements Stripe, livestreams quotidiens et communauté Discord.",
+    details: "Plateforme membership premium pour entrepreneurs. Espace membres, paiements Stripe, livestreams quotidiens et communauté Discord. Next.js 15, Prisma, PostgreSQL, Stripe, NextAuth.",
+    year: "2025"
+  },
+  {
+    title: "Cremya",
+    category: "E-commerce",
+    url: "https://cremya.fr",
+    image: cremyaImg,
+    description: "Marque beauté. Site e-commerce au design organique avec animations fluides et fiches produit interactives.",
+    details: "Site e-commerce au design organique avec animations fluides et fiches produit interactives. HTML/CSS/JS, CSS Animations, SVG, Responsive.",
+    year: "2025"
+  },
+  {
+    title: "Nutri7",
+    category: "E-commerce",
+    url: "https://nutri7.fr",
+    image: nutri7Img,
+    description: "Compléments naturels. Plateforme e-commerce au design raffiné avec animations subtiles et badges de certification.",
+    details: "Plateforme e-commerce au design raffiné avec animations subtiles et badges de certification. HTML/CSS/JS, Responsive, E-commerce.",
+    year: "2025"
   }
 ];
 

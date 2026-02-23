@@ -102,7 +102,7 @@ export default function BlogArticleContent({ article, allArticles, slug }) {
             Discutons de votre projet gratuitement. Réponse en moins de 24h.
           </p>
           <a
-            href="https://wa.me/33635505374"
+            href="https://wa.me/33756881246"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-[#0066FF] px-8 py-3 rounded-full text-sm font-bold hover:bg-gray-100 transition-colors"

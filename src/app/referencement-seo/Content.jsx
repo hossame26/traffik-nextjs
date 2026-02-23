@@ -93,7 +93,7 @@ export default function Content() {
           </p>
 
           <motion.a
-            href="https://wa.me/33635505374?text=Bonjour%2C%20je%20souhaite%20un%20audit%20SEO%20pour%20mon%20site."
+            href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20un%20audit%20SEO%20pour%20mon%20site."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-[#0066FF] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#0066FF]/25 transition-all"
@@ -282,7 +282,7 @@ export default function Content() {
 
           <div className="text-center">
             <motion.a
-              href="https://wa.me/33635505374?text=Bonjour%2C%20je%20souhaite%20un%20audit%20SEO%20pour%20mon%20site."
+              href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20un%20audit%20SEO%20pour%20mon%20site."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#0066FF] to-[#A855F7] text-white font-bold shadow-lg shadow-[#0066FF]/20 hover:shadow-xl hover:shadow-[#0066FF]/30 transition-shadow"
@@ -342,7 +342,7 @@ export default function Content() {
                 ))}
               </ul>
               <motion.a
-                href="https://wa.me/33635505374?text=Bonjour%2C%20je%20souhaite%20un%20audit%20SEO%20pour%20mon%20site."
+                href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20un%20audit%20SEO%20pour%20mon%20site."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full py-3 rounded-xl border-2 border-[#0066FF] text-[#0066FF] font-bold text-center hover:bg-[#0066FF]/5 transition-colors"
@@ -388,7 +388,7 @@ export default function Content() {
                 ))}
               </ul>
               <motion.a
-                href="https://wa.me/33635505374?text=Bonjour%2C%20je%20suis%20intéressé%20par%20votre%20offre%20SEO%20mensuelle."
+                href="https://wa.me/33756881246?text=Bonjour%2C%20je%20suis%20intéressé%20par%20votre%20offre%20SEO%20mensuelle."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full py-3 rounded-xl bg-[#0066FF] text-white font-bold text-center shadow-lg shadow-[#0066FF]/25"
@@ -431,7 +431,7 @@ export default function Content() {
                 ))}
               </ul>
               <motion.a
-                href="https://wa.me/33635505374?text=Bonjour%2C%20je%20suis%20intéressé%20par%20votre%20offre%20SEO%20Premium."
+                href="https://wa.me/33756881246?text=Bonjour%2C%20je%20suis%20intéressé%20par%20votre%20offre%20SEO%20Premium."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full py-3 rounded-xl border-2 border-[#0066FF] text-[#0066FF] font-bold text-center hover:bg-[#0066FF]/5 transition-colors"
@@ -554,7 +554,7 @@ export default function Content() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
-              href="https://wa.me/33635505374?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20mon%20projet%20SEO."
+              href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20mon%20projet%20SEO."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold shadow-lg shadow-[#25D366]/25"

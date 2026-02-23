@@ -460,7 +460,7 @@ export default function Pricing() {
                 </motion.a>
 
                 <motion.a
-                  href="https://wa.me/33635505374"
+                  href="https://wa.me/33756881246"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm text-center flex items-center justify-center gap-2 transition-colors"

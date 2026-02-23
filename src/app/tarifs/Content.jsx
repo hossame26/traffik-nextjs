@@ -281,7 +281,7 @@ function BentoCard({ plan, index }) {
 
           <div className="flex gap-2 mt-auto">
             <motion.a
-              href={`https://wa.me/33635505374?text=${encodeURIComponent(`Bonjour, je suis intéressé par l'offre ${plan.name}. Pouvez-vous m'envoyer un devis ?`)}`}
+              href={`https://wa.me/33756881246?text=${encodeURIComponent(`Bonjour, je suis intéressé par l'offre ${plan.name}. Pouvez-vous m'envoyer un devis ?`)}`}
               target="_blank" rel="noopener noreferrer"
               className={`flex-1 py-2.5 rounded-xl font-semibold text-center text-sm transition-all ${
                 plan.popular
@@ -354,7 +354,7 @@ export default function TarifsContent() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-center rounded-3xl bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] p-10 md:p-14">
           <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-white">Un projet en tête ?</h2>
           <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-lg mx-auto">Discutons de votre projet gratuitement. Réponse garantie en moins de 2h.</p>
-          <motion.a href="https://wa.me/33635505374?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20mon%20projet%20web." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-lg shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 transition-shadow" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+          <motion.a href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20mon%20projet%20web." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-lg shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 transition-shadow" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <MessageCircle className="w-5 h-5" />
             Discuter sur WhatsApp
           </motion.a>

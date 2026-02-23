@@ -150,7 +150,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6 }}
-              href="https://wa.me/33635505374"
+              href="https://wa.me/33756881246"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1DA851] text-white px-8 py-4 rounded-full font-bold tracking-wide transition-all shadow-[0_8px_30px_-4px_rgba(37,211,102,0.5)] hover:shadow-[0_12px_40px_-4px_rgba(37,211,102,0.6)] active:brightness-110"
