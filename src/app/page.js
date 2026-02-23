@@ -3,7 +3,6 @@ import Solutions from '@/components/sections/Solutions';
 import Projects from '@/components/sections/Projects';
 import Testimonials from '@/components/sections/Testimonials';
 import Process from '@/components/sections/Process';
-import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
 
 export default function HomePage() {
@@ -14,7 +13,6 @@ export default function HomePage() {
       <Projects />
       <Testimonials />
       <Process />
-      <FAQ />
       <Contact />
     </main>
   );
