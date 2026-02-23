@@ -1,6 +1,6 @@
 'use client';
 import { useRef } from 'react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { ArrowRight, ShoppingCart, Package, CreditCard, FileText, Search, Layers, Zap, BarChart3, Globe, Code2, Database } from 'lucide-react';
 import Link from 'next/link';
 const shopifyImg = '/images/shopify-removebg-preview.png';
@@ -26,33 +26,12 @@ const staggerItem = {
   },
 };
 
-/* ── TiltCard ── */
-function TiltCard({ children, className }) {
-  const ref = useRef(null);
-  const rotateX = useMotionValue(0);
-  const rotateY = useMotionValue(0);
-  const springX = useSpring(rotateX, { stiffness: 200, damping: 15 });
-  const springY = useSpring(rotateY, { stiffness: 200, damping: 15 });
-
-  const handleMouse = (e) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    rotateX.set(y * -5);
-    rotateY.set(x * 5);
-  };
-
+/* ── Card wrapper (no tilt) ── */
+function Card({ children, className }) {
   return (
-    <motion.div
-      ref={ref}
-      style={{ rotateX: springX, rotateY: springY, transformPerspective: 1200 }}
-      onMouseMove={handleMouse}
-      onMouseLeave={() => { rotateX.set(0); rotateY.set(0); }}
-      className={className}
-    >
+    <div className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -240,7 +219,7 @@ const offers = [
   },
   {
     id: 'custom',
-    title: 'Site React',
+    title: 'Site Sur Mesure',
     price: '600',
     image: reactImg,
     description: "Site codé sur mesure, ultra-rapide et évolutif.",
@@ -250,7 +229,7 @@ const offers = [
     badgeReason: 'Le plus demandé — meilleur rapport performance / prix',
     features: [
       'Score Google PageSpeed 95-100',
-      'Code Next.js sur mesure, pas de template',
+      'Code sur mesure, pas de template',
       'Évolutif : ajoutez des fonctionnalités à tout moment',
     ],
   },
@@ -310,7 +289,7 @@ export default function Solutions() {
             const Preview = previewMap[offer.id];
             return (
               <motion.div key={offer.id} variants={staggerItem}>
-                <TiltCard
+                <Card
                   className={`relative rounded-2xl p-6 md:p-7 flex flex-col h-full transition-all duration-300 ${
                     offer.badge
                       ? 'pt-10 md:pt-11 bg-gray-50 dark:bg-white/[0.06] border-2 border-[#0066FF]/30 dark:border-[#0066FF]/40 shadow-xl shadow-[#0066FF]/5 dark:shadow-[#0066FF]/10 ring-1 ring-[#0066FF]/10'
@@ -378,7 +357,7 @@ export default function Solutions() {
                       </span>
                     </motion.div>
                   </Link>
-                </TiltCard>
+                </Card>
               </motion.div>
             );
           })}
