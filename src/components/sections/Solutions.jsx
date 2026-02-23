@@ -9,7 +9,7 @@ const reactImg = '/images/react.svg';
 
 /* ── Animation Variants ── */
 const staggerContainer = {
-  hidden: { opacity: 1 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: { staggerChildren: 0.12, delayChildren: 0.1 },
@@ -17,7 +17,7 @@ const staggerContainer = {
 };
 
 const staggerItem = {
-  hidden: { opacity: 1, y: 0, filter: 'blur(0px)' },
+  hidden: { opacity: 0, y: 30, filter: 'blur(4px)' },
   visible: {
     opacity: 1,
     y: 0,
@@ -192,29 +192,29 @@ const offers = [
   {
     id: 'shopify',
     title: 'Site Shopify',
-    price: '250',
+    price: null,
     image: shopifyImg,
-    description: "Boutique e-commerce complète, prête à vendre en 5 jours.",
+    description: "Boutique e-commerce compl\u00e8te, pr\u00eate \u00e0 vendre en 5 jours.",
     link: '/creation-site-shopify',
     accentColor: '#22c55e',
     features: [
-      'Boutique configurée avec vos produits',
-      'Paiement Stripe & PayPal intégré',
-      'Design sur mesure à votre image',
+      'Boutique configur\u00e9e avec vos produits',
+      'Paiement Stripe & PayPal int\u00e9gr\u00e9',
+      'Design sur mesure \u00e0 votre image',
     ],
   },
   {
     id: 'wordpress',
     title: 'Site WordPress',
-    price: '500',
+    price: '600',
     image: wordpressImg,
-    description: "Site vitrine professionnel de 5 à 10 pages, optimisé Google.",
+    description: "Site vitrine professionnel de 5 \u00e0 10 pages, optimis\u00e9 Google.",
     link: '/creation-site-wordpress',
     accentColor: '#3b82f6',
     features: [
-      '5 à 10 pages rédigées et designées',
-      'Blog prêt à publier + formulaire contact',
-      'Référencement Google (SEO) configuré',
+      '5 \u00e0 10 pages r\u00e9dig\u00e9es et design\u00e9es',
+      'Blog pr\u00eat \u00e0 publier + formulaire contact',
+      'R\u00e9f\u00e9rencement Google (SEO) configur\u00e9',
     ],
   },
   {
@@ -222,15 +222,15 @@ const offers = [
     title: 'Site Sur Mesure',
     price: '600',
     image: reactImg,
-    description: "Site codé sur mesure, ultra-rapide et évolutif.",
+    description: "Site cod\u00e9 sur mesure, ultra-rapide et \u00e9volutif.",
     link: '/developpement-react-nextjs',
     accentColor: '#8b5cf6',
     badge: 'BEST SELLER',
-    badgeReason: 'Le plus demandé — meilleur rapport performance / prix',
+    badgeReason: 'Le plus demand\u00e9 \u2014 meilleur rapport performance / prix',
     features: [
       'Score Google PageSpeed 95-100',
       'Code sur mesure, pas de template',
-      'Évolutif : ajoutez des fonctionnalités à tout moment',
+      '\u00c9volutif : ajoutez des fonctionnalit\u00e9s \u00e0 tout moment',
     ],
   },
 ];
@@ -248,26 +248,34 @@ export default function Solutions() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <span
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             className="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-white/5 text-primary dark:text-gray-400 text-[10px] font-bold tracking-[0.2em] uppercase mb-4"
           >
             Nos Solutions
-          </span>
+          </motion.span>
 
-          <h2
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-black dark:text-white mb-4"
           >
-            Création de site{' '}
+            Cr&eacute;ation de site{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#A855F7]">
-              clé en main.
+              cl&eacute; en main.
             </span>
-          </h2>
+          </motion.h2>
 
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
             className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto"
           >
-            Design, développement et mise en ligne inclus. Choisissez votre technologie, on s'occupe de tout.
-          </p>
+            Design, d&eacute;veloppement et mise en ligne inclus. Choisissez votre technologie, on s&apos;occupe de tout.
+          </motion.p>
         </div>
 
         {/* Cards — Slider mobile / Grid desktop */}

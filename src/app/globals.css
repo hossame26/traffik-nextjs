@@ -81,23 +81,6 @@ body {
   overflow-x: hidden;
 }
 
-html {
-  overflow-x: hidden;
-}
-
-/* Framer Motion SSR fix: prevent invisible content when JS hasn't hydrated yet */
-/* Force all elements with inline opacity:0 to become visible after 1s */
-@keyframes fm-ssr-fix {
-  to {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-body [style*="opacity:0"],
-body [style*="opacity: 0"] {
-  animation: fm-ssr-fix 0.3s ease-out 1s both !important;
-}
 
 /* Focus styles */
 *:focus-visible {
@@ -105,10 +88,6 @@ body [style*="opacity: 0"] {
   outline-offset: 2px;
 }
 
-/* Prevent layout shift from scrollbar */
-html {
-  overflow-y: scroll;
-}
 
 /* Dark mode transitions */
 html.dark {
