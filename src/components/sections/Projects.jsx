@@ -44,7 +44,7 @@ const AnimatedTitle = ({ text, className }) => {
       {letters.map((letter, i) => (
         <Motion.span
           key={i}
-          initial={{ opacity: 0, y: 20, rotateX: -90 }}
+          initial={{ opacity: 1, y: 0, rotateX: 0 }}
           whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
           viewport={{ once: true }}
           transition={{
@@ -222,18 +222,12 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 md:mb-10">
-          <Motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <span
             className="inline-block px-3 py-1 rounded-full bg-[#0066FF]/10 text-[#0066FF] text-[9px] font-bold tracking-[0.2em] uppercase mb-4"
           >
             Portfolio
-          </Motion.span>
-          <Motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          </span>
+          <h2
             className="text-3xl md:text-5xl font-bold tracking-tight text-black dark:text-white mb-6"
           >
             Nos{' '}
@@ -241,22 +235,16 @@ export default function Projects() {
               text="Réalisations"
               className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-purple-600"
             />
-          </Motion.h2>
-          <Motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          </h2>
+          <p
             className="text-gray-500 dark:text-gray-400 text-sm md:text-base max-w-lg mx-auto"
           >
             Des projets qui génèrent des résultats concrets pour nos clients.
-          </Motion.p>
+          </p>
         </div>
 
         {/* MacBook Carousel */}
-        <Motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <div
           className="relative"
         >
           <MacBookMockup>
@@ -335,7 +323,7 @@ export default function Projects() {
           >
             <ChevronRight className="w-5 h-5" />
           </Motion.button>
-        </Motion.div>
+        </div>
 
         {/* Dots Navigation */}
         <div className="flex justify-center gap-2 mt-8">
@@ -363,10 +351,7 @@ export default function Projects() {
         </div>
 
         {/* Project Quick Info */}
-        <Motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <div
           className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4"
         >
           <Motion.button
@@ -385,7 +370,7 @@ export default function Projects() {
           >
             LANCER MON PROJET <ArrowUpRight className="w-4 h-4" />
           </Motion.a>
-        </Motion.div>
+        </div>
       </div>
 
       {/* --- MODAL SYSTEM --- */}

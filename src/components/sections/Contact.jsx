@@ -88,18 +88,13 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
           {/* Left Column - Info */}
           <div className="text-center lg:text-left">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+            <span
               className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-6"
             >
               Contact
-            </motion.span>
+            </span>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 }}
+            <h2
               className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tightest text-black dark:text-white mb-6"
             >
               Prêt à lancer
@@ -107,16 +102,13 @@ export default function Contact() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-purple">
                 votre projet ?
               </span>
-            </motion.h2>
+            </h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 }}
+            <p
               className="text-gray-500 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10"
             >
               Premier échange gratuit et sans engagement pour évaluer vos besoins.
-            </motion.p>
+            </p>
 
             {/* Benefits */}
             <div className="space-y-4 mb-8">
@@ -125,11 +117,8 @@ export default function Contact() {
                 { icon: Shield, text: "Devis gratuit et personnalisé" },
                 { icon: Zap, text: "Mise en ligne rapide" }
               ].map((item, i) => (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.3 + i * 0.1 }}
                   className="flex items-center gap-4 group"
                 >
                   <motion.div
@@ -141,15 +130,14 @@ export default function Contact() {
                   <span className="text-gray-700 dark:text-gray-300 font-medium">
                     {item.text}
                   </span>
-                </motion.div>
+                </div>
               ))}
             </div>
 
             {/* WhatsApp CTA */}
             <motion.a
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 1, y: 0 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.6 }}
               href="https://wa.me/33756881246"
               target="_blank"
               rel="noopener noreferrer"
@@ -163,10 +151,7 @@ export default function Contact() {
           </div>
 
           {/* Right Column - Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3 }}
+          <div
             className="relative"
           >
             <form
@@ -210,12 +195,8 @@ export default function Contact() {
               <div className="space-y-5">
                 <div className="grid md:grid-cols-2 gap-4">
                   {/* Name Input */}
-                  <motion.div
+                  <div
                     className="space-y-2"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
                   >
                     <label className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                       Nom
@@ -227,15 +208,11 @@ export default function Contact() {
                       className="w-full bg-white dark:bg-dark-800 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-4 text-black dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 focus:shadow-[0_0_20px_-4px_rgba(0,102,255,0.15)] transition-all duration-300"
                       placeholder="Votre nom"
                     />
-                  </motion.div>
+                  </div>
 
                   {/* Email Input */}
-                  <motion.div
+                  <div
                     className="space-y-2"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.15 }}
                   >
                     <label className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                       Email <span className="text-red-500">*</span>
@@ -248,16 +225,12 @@ export default function Contact() {
                       placeholder="votre@email.com"
                       required
                     />
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Phone Input */}
-                <motion.div
+                <div
                   className="space-y-2"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
                 >
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                     Téléphone <span className="text-red-500">*</span>
@@ -270,15 +243,11 @@ export default function Contact() {
                     placeholder="06 12 34 56 78"
                     required
                   />
-                </motion.div>
+                </div>
 
                 {/* Project Type Select */}
-                <motion.div
+                <div
                   className="space-y-2"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.25 }}
                 >
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                     Type de projet
@@ -295,15 +264,11 @@ export default function Contact() {
                       </option>
                     ))}
                   </select>
-                </motion.div>
+                </div>
 
                 {/* Message Textarea */}
-                <motion.div
+                <div
                   className="space-y-2"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
                 >
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                     Votre message
@@ -315,7 +280,7 @@ export default function Contact() {
                     className="w-full bg-white dark:bg-dark-800 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-4 text-black dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 focus:shadow-[0_0_20px_-4px_rgba(0,102,255,0.15)] transition-all duration-300 resize-none"
                     placeholder="Décrivez brièvement votre projet et vos objectifs..."
                   />
-                </motion.div>
+                </div>
 
                 {/* Submit Button */}
                 <motion.button
@@ -348,7 +313,7 @@ export default function Contact() {
                 </motion.button>
               </div>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

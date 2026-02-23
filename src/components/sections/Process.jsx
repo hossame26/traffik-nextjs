@@ -40,7 +40,7 @@ function TimelineStep({ step, index, isInView }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 1, y: 0 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.15, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       className="flex flex-col items-center text-center group"
@@ -150,9 +150,7 @@ export default function Process() {
 
       <div className="relative max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+        <div
           className="text-center mb-10"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
@@ -164,7 +162,7 @@ export default function Process() {
           <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg max-w-xl mx-auto">
             Une méthodologie éprouvée pour des projets livrés dans les temps.
           </p>
-        </motion.div>
+        </div>
 
         {/* Desktop Timeline */}
         <div ref={timelineRef} className="hidden lg:block relative">
@@ -217,10 +215,7 @@ export default function Process() {
         </div>
 
         {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6 }}
+        <div
           className="mt-10 text-center"
         >
           <motion.a
@@ -232,7 +227,7 @@ export default function Process() {
             Démarrer mon projet
             <Rocket className="w-4 h-4" />
           </motion.a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

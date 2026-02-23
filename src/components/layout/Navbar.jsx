@@ -135,7 +135,7 @@ export default function Navbar() {
       {/* Navbar */}
       <div className="fixed top-0 left-0 right-0 flex justify-center z-50 pt-4 md:pt-6 px-4">
         <motion.nav
-          initial={{ y: -100, opacity: 0 }}
+          initial={{ y: 0, opacity: 1 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className={`
@@ -187,7 +187,7 @@ export default function Navbar() {
               <motion.div
                 key={item.label}
                 className="relative py-1"
-                initial={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + index * 0.05, duration: 0.5 }}
                 whileHover={{ y: -1 }}
@@ -284,7 +284,7 @@ export default function Navbar() {
                     href={item.href}
                     onClick={(e) => triggerWarp(e, item)}
                     className="text-lg font-semibold tracking-wide text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors py-2"
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 1, x: 0 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
@@ -296,7 +296,7 @@ export default function Navbar() {
                   href="#contact"
                   onClick={(e) => triggerWarp(e, { href: '/#contact', isRoute: false })}
                   className="bg-gradient-to-r from-primary to-primary-light text-white px-6 py-3 rounded-full text-sm font-bold tracking-widest text-center shadow-lg shadow-primary/25"
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 1, y: 0 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                   whileHover={{ scale: 1.05, boxShadow: '0 16px 40px -8px rgba(0,102,255,0.4)' }}

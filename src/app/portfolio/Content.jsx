@@ -61,8 +61,8 @@ const techColors = {
   'Site Vitrine': 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20',
 };
 
-const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };
-const cardVariants = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } } };
+const containerVariants = { hidden: { opacity: 1 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };
+const cardVariants = { hidden: { opacity: 1, y: 0 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } } };
 
 export default function PortfolioContent() {
   const [activeFilter, setActiveFilter] = useState('Tous');
@@ -75,7 +75,7 @@ export default function PortfolioContent() {
           <ArrowLeft className="w-4 h-4" /> Retour à l&apos;accueil
         </Link>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
+        <div className="mb-12">
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
             Nos{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-purple-600">Réalisations</span>
@@ -83,15 +83,15 @@ export default function PortfolioContent() {
           <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg max-w-2xl">
             Des interfaces qui marquent les esprits. Sites premium, dashboards, SaaS — découvrez nos projets.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="flex flex-wrap gap-3 mb-10">
+        <div className="flex flex-wrap gap-3 mb-10">
           {categories.map((cat) => (
             <button key={cat} onClick={() => setActiveFilter(cat)} className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all ${activeFilter === cat ? 'bg-[#0066FF] text-white border-[#0066FF]' : 'bg-transparent text-gray-600 dark:text-gray-400 border-gray-200 dark:border-white/10 hover:border-[#0066FF] hover:text-[#0066FF]'}`}>
               {cat}
             </button>
           ))}
-        </motion.div>
+        </div>
 
         <AnimatePresence mode="wait">
           <motion.div key={activeFilter} variants={containerVariants} initial="hidden" animate="visible" exit="hidden" className="grid md:grid-cols-2 gap-6">

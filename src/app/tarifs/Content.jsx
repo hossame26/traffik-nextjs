@@ -310,19 +310,19 @@ export default function TarifsContent() {
           <ArrowLeft className="w-4 h-4" /> Retour à l&apos;accueil
         </Link>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center mb-14">
+        <div className="text-center mb-14">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
             Nos <span className="text-[#0066FF]">services</span>
           </h1>
           <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
             Tarifs transparents, résultats concrets. Choisissez la formule adaptée à votre projet.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
+        <div className="mb-6">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Création de Site Web</h2>
           <p className="text-gray-400 dark:text-gray-500 mt-1">E-commerce, vitrine ou sur mesure.</p>
-        </motion.div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-20">
           {webPlans.map((plan, i) => (
             <div key={plan.id} className={plan.grid}>
@@ -331,10 +331,10 @@ export default function TarifsContent() {
           ))}
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6">
+        <div className="mb-6">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Marketing & Visibilité</h2>
           <p className="text-gray-400 dark:text-gray-500 mt-1">Attirez des clients, mesurez vos résultats.</p>
-        </motion.div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-20">
           {marketingPlans.map((plan, i) => (
             <div key={plan.id} className={plan.grid}>

@@ -26,11 +26,7 @@ export default function BlogListContent({ articles }) {
           <ArrowLeft className="w-4 h-4" /> Retour à l&apos;accueil
         </Link>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
             Blog
           </h1>
@@ -38,7 +34,7 @@ export default function BlogListContent({ articles }) {
             Guides pratiques, comparatifs et conseils pour réussir votre présence en ligne.
             Un nouvel article chaque jour.
           </p>
-        </motion.div>
+        </div>
 
         {/* Search */}
         <div className="relative mb-10">

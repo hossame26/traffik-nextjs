@@ -38,13 +38,13 @@ export default function FAQContent() {
           <ArrowLeft className="w-4 h-4" /> Retour à l&apos;accueil
         </Link>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-12">
+        <div className="mb-12">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
             Questions{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#A855F7]">fréquentes</span>
           </h1>
           <p className="text-lg text-gray-500 dark:text-gray-400">Tarifs, délais, processus — tout ce qu&apos;il faut savoir.</p>
-        </motion.div>
+        </div>
 
         {faqs.map((section, sIdx) => (
           <motion.div key={sIdx} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: sIdx * 0.05 }} className="mb-8">

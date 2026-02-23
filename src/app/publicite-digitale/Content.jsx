@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Target, TrendingUp, BarChart3, Users, Zap, CheckCircle2, MessageCircle, Eye, DollarSign, LineChart, Megaphone, Rocket, ShieldCheck, Clock, ArrowRight } from 'lucide-react';
 import FAQSection from '@/components/common/FAQSection';
 
-const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: (i = 0) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6, ease: 'easeOut' } }) };
+const fadeUp = { hidden: { opacity: 1, y: 0 }, visible: (i = 0) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6, ease: 'easeOut' } }) };
 
 const platforms = [
   { name: 'Facebook & Instagram Ads', icon: Users, color: 'from-blue-600 to-indigo-600', features: ['Ciblage ultra-précis', 'Retargeting dynamique', 'Audiences Lookalike', 'Stories & Reels Ads'] },

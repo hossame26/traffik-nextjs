@@ -6,8 +6,8 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Code2, Zap, Shield, Smartphone, Search, Layers, MessageCircle, Globe, Database, Star, Check, TrendingUp, Clock, Users } from 'lucide-react';
 import FAQSection from '@/components/common/FAQSection';
 
-const staggerContainer = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
-const staggerItem = { hidden: { opacity: 0, y: 20, filter: 'blur(4px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } } };
+const staggerContainer = { hidden: { opacity: 1 }, visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
+const staggerItem = { hidden: { opacity: 1, y: 0, filter: 'blur(0px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } } };
 
 const reactFaqs = [
   { question: "Quelle différence entre un site React et WordPress ?", answer: "React est construit sur mesure en code. Contrairement à WordPress (thèmes/plugins), React offre liberté totale sur design et fonctionnalités. Performances 2 à 5x supérieures." },
@@ -130,16 +130,16 @@ export default function ReactDevContent() {
             <Link href="/" className="inline-flex items-center gap-2 text-[#0066FF] hover:underline mb-10 text-sm"><ArrowLeft className="w-4 h-4" /> Retour à l&apos;accueil</Link>
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 border border-[#0066FF]/25 bg-[#0066FF]/[0.08] px-4 py-2 rounded-full mb-6"><span className="relative flex h-2 w-2"><span className="animate-ping absolute h-full w-full rounded-full bg-[#0066FF] opacity-75" /><span className="relative rounded-full h-2 w-2 bg-[#0066FF]" /></span><span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#0066FF]">Best Seller</span></motion.div>
-                <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }} className="text-4xl md:text-5xl lg:text-6xl font-black tracking-[-0.04em] leading-[0.95] mb-6 text-gray-900 dark:text-white">Applications{' '}<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] via-[#5B8DEF] to-[#A855F7]">React & Next.js</span></motion.h1>
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.4 }} className="text-lg text-gray-500 dark:text-gray-400 max-w-xl mb-8 leading-relaxed">Ultra-rapides, SEO-friendly, construites sur mesure. Du site vitrine au SaaS complet.</motion.p>
-                <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} className="flex flex-wrap gap-3 mb-10">
+                <div className="inline-flex items-center gap-2 border border-[#0066FF]/25 bg-[#0066FF]/[0.08] px-4 py-2 rounded-full mb-6"><span className="relative flex h-2 w-2"><span className="animate-ping absolute h-full w-full rounded-full bg-[#0066FF] opacity-75" /><span className="relative rounded-full h-2 w-2 bg-[#0066FF]" /></span><span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#0066FF]">Best Seller</span></div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-[-0.04em] leading-[0.95] mb-6 text-gray-900 dark:text-white">Applications{' '}<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] via-[#5B8DEF] to-[#A855F7]">React & Next.js</span></h1>
+                <p className="text-lg text-gray-500 dark:text-gray-400 max-w-xl mb-8 leading-relaxed">Ultra-rapides, SEO-friendly, construites sur mesure. Du site vitrine au SaaS complet.</p>
+                <div className="flex flex-wrap gap-3 mb-10">
                   <MagneticButton href="https://wa.me/33756881246?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20d%C3%A9veloppement%20React." className="inline-flex items-center gap-3 px-8 py-4 bg-[#0066FF] text-white font-bold rounded-full shadow-lg shadow-[#0066FF]/30 hover:shadow-[#0066FF]/50 transition-shadow"><MessageCircle className="w-5 h-5" /> Discuter du projet</MagneticButton>
                   <motion.a href="#pricing" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="inline-flex items-center gap-2 px-8 py-4 border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] text-gray-900 dark:text-white font-semibold rounded-full hover:border-[#0066FF]/30 transition-all">Voir les formules <ArrowRight className="w-4 h-4" /></motion.a>
-                </motion.div>
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="flex gap-8">
+                </div>
+                <div className="flex gap-8">
                   {[{ value: '100', label: 'Lighthouse Score' }, { value: '< 1s', label: 'Temps chargement' }, { value: '50+', label: 'Projets React' }].map((stat, i) => (<div key={i}><div className="text-xl font-bold text-gray-900 dark:text-white">{stat.value}</div><div className="text-[10px] text-gray-500 uppercase tracking-wider mt-0.5">{stat.label}</div></div>))}
-                </motion.div>
+                </div>
               </div>
               <div className="hidden lg:block"><LiveTerminal /></div>
             </div>

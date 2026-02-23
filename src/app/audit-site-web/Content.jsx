@@ -323,10 +323,7 @@ export default function Content() {
         </Link>
 
         {/* -- Hero -- */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
           className="mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-5">
@@ -362,7 +359,7 @@ export default function Content() {
               Voir les formules
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* -- Pricing Cards -- */}
         <motion.section

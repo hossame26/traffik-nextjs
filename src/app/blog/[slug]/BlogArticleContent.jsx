@@ -17,10 +17,7 @@ export default function BlogArticleContent({ article, allArticles, slug }) {
           <ArrowLeft className="w-4 h-4" /> Retour au blog
         </Link>
 
-        <motion.header
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <header
           className="mb-10"
         >
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 dark:text-gray-500 mb-4">
@@ -58,15 +55,12 @@ export default function BlogArticleContent({ article, allArticles, slug }) {
               ))}
             </div>
           )}
-        </motion.header>
+        </header>
 
         <TableOfContents content={article.content} />
 
         {/* Article Content */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+        <div
           className="prose prose-lg dark:prose-invert max-w-none
             prose-headings:font-bold prose-headings:text-black dark:prose-headings:text-white
             prose-a:text-[#0066FF] prose-a:no-underline hover:prose-a:underline

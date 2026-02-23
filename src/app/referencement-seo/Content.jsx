@@ -24,7 +24,7 @@ import {
 import FAQSection from '@/components/common/FAQSection';
 
 const fadeUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 1, y: 0 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, ease: 'easeOut' }
 };
@@ -66,10 +66,7 @@ export default function Content() {
         </Link>
 
         {/* Hero Section */}
-        <motion.header
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+        <header
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-5">
@@ -103,7 +100,7 @@ export default function Content() {
             <MessageCircle className="w-5 h-5" />
             Demander un Audit SEO Gratuit
           </motion.a>
-        </motion.header>
+        </header>
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">

@@ -9,7 +9,7 @@ const reactImg = '/images/react.svg';
 
 /* ── Animation Variants ── */
 const staggerContainer = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: { staggerChildren: 0.12, delayChildren: 0.1 },
@@ -17,7 +17,7 @@ const staggerContainer = {
 };
 
 const staggerItem = {
-  hidden: { opacity: 0, y: 30, filter: 'blur(4px)' },
+  hidden: { opacity: 1, y: 0, filter: 'blur(0px)' },
   visible: {
     opacity: 1,
     y: 0,
@@ -248,34 +248,26 @@ export default function Solutions() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+          <span
             className="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-white/5 text-primary dark:text-gray-400 text-[10px] font-bold tracking-[0.2em] uppercase mb-4"
           >
             Nos Solutions
-          </motion.span>
+          </span>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 }}
+          <h2
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-black dark:text-white mb-4"
           >
             Création de site{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#A855F7]">
               clé en main.
             </span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
+          <p
             className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto"
           >
             Design, développement et mise en ligne inclus. Choisissez votre technologie, on s'occupe de tout.
-          </motion.p>
+          </p>
         </div>
 
         {/* Cards — Slider mobile / Grid desktop */}

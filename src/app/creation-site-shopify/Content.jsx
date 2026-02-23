@@ -139,7 +139,7 @@ export default function ShopifyContent() {
           <ArrowLeft className="w-4 h-4" /> Retour à l&apos;accueil
         </Link>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-16">
+        <div className="mb-16">
           <div className="flex items-center gap-3 mb-5">
             <div className="p-3 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600">
               <ShoppingCart className="w-6 h-6 text-white" />
@@ -153,7 +153,7 @@ export default function ShopifyContent() {
           <motion.a href="https://wa.me/33756881246?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20cr%C3%A9ation%20d%27une%20boutique%20Shopify." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-[#0066FF] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#0066FF]/25 transition-all" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <MessageCircle className="w-5 h-5" /> Discuter sur WhatsApp
           </motion.a>
-        </motion.div>
+        </div>
 
         {/* Pricing Cards */}
         <div className="relative mb-20 rounded-3xl p-6 md:p-10 -mx-2 md:-mx-4">
