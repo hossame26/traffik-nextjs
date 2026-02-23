@@ -11,12 +11,28 @@ function EclipseRing() {
   const canvasRef = useRef(null);
   const animRef = useRef(null);
   const isDarkRef = useRef(true);
+  const isVisibleRef = useRef(true);
+  const isPausedRef = useRef(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: false });
     let w, h;
+
+    // Pause when tab is hidden
+    const onVisChange = () => {
+      isPausedRef.current = document.hidden;
+      if (!document.hidden && isVisibleRef.current && !animRef.current) animate();
+    };
+    document.addEventListener('visibilitychange', onVisChange);
+
+    // Pause when scrolled offscreen
+    const io = new IntersectionObserver(([entry]) => {
+      isVisibleRef.current = entry.isIntersecting;
+      if (entry.isIntersecting && !isPausedRef.current && !animRef.current) animate();
+    }, { threshold: 0 });
+    io.observe(canvas);
 
     const updateDark = () => {
       isDarkRef.current = document.documentElement.classList.contains('dark');
@@ -132,6 +148,11 @@ function EclipseRing() {
     let lastRadius = 0;
 
     const animate = () => {
+      // Stop loop if offscreen or tab hidden
+      if (!isVisibleRef.current || isPausedRef.current) {
+        animRef.current = null;
+        return;
+      }
       time++;
       const dark = isDarkRef.current;
       ctx.fillStyle = dark ? '#030308' : '#f0f2f8';
@@ -183,8 +204,11 @@ function EclipseRing() {
     animate();
     return () => {
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', onVisChange);
+      io.disconnect();
       obs.disconnect();
       if (animRef.current) cancelAnimationFrame(animRef.current);
+      animRef.current = null;
     };
   }, []);
 
@@ -230,7 +254,7 @@ function MobileHero() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-gray-500 dark:text-gray-400 text-sm max-w-sm mx-auto mb-3"
         >
-          Sites web qui génèrent du{' '}
+          Sites web qui g&eacute;n&egrave;rent du{' '}
           <span className="text-gray-900 dark:text-white font-semibold">chiffre d&apos;affaires</span>.
           Pas juste des pixels.
         </motion.p>
@@ -241,7 +265,7 @@ function MobileHero() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-[11px] text-gray-400 dark:text-gray-600 uppercase tracking-[0.15em] mb-8"
         >
-          Création de sites web &middot; Design &middot; Développement
+          Cr&eacute;ation de sites web &middot; Design &middot; D&eacute;veloppement
         </motion.p>
 
         <motion.div
@@ -254,7 +278,7 @@ function MobileHero() {
             href="#contact"
             className="group bg-[#0066FF] text-white px-8 py-4 rounded-full text-[11px] font-bold tracking-widest flex items-center gap-2 shadow-lg shadow-[#0066FF]/30 justify-center active:brightness-110 transition-all"
           >
-            DÉMARRER MON PROJET
+            D&Eacute;MARRER MON PROJET
             <ArrowRight className="w-4 h-4" />
           </a>
           <a
@@ -272,9 +296,9 @@ function MobileHero() {
           className="flex gap-8 justify-center mt-10 pt-6 border-t border-gray-200 dark:border-white/10"
         >
           {[
-            { value: '50+', label: 'Projets livrés' },
+            { value: '50+', label: 'Projets livr\u00e9s' },
             { value: '350%', label: 'ROI moyen' },
-            { value: '24h', label: 'Réponse garantie' },
+            { value: '24h', label: 'R\u00e9ponse garantie' },
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <div className="text-lg font-bold text-gray-900 dark:text-white">{stat.value}</div>
@@ -302,11 +326,11 @@ function DesktopHero() {
 
   const ringScale = useTransform(scrollYProgress, [0, 1], [1, 3.2]);
   const ringOpacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 1, 0.6]);
-  const phase0 = useTransform(scrollYProgress, [0, 0.12, 0.20], [1, 1, 0]);
-  const phase1 = useTransform(scrollYProgress, [0.18, 0.24, 0.38, 0.44], [0, 1, 1, 0]);
-  const phase2 = useTransform(scrollYProgress, [0.42, 0.48, 0.60, 0.66], [0, 1, 1, 0]);
-  const phase3 = useTransform(scrollYProgress, [0.64, 0.70, 0.82, 0.88], [0, 1, 1, 0]);
-  const phase4 = useTransform(scrollYProgress, [0.86, 0.94], [0, 1]);
+  const phase0 = useTransform(scrollYProgress, [0, 0.08, 0.16], [1, 1, 0]);
+  const phase1 = useTransform(scrollYProgress, [0.14, 0.21, 0.34, 0.40], [0, 1, 1, 0]);
+  const phase2 = useTransform(scrollYProgress, [0.38, 0.44, 0.57, 0.63], [0, 1, 1, 0]);
+  const phase3 = useTransform(scrollYProgress, [0.61, 0.67, 0.79, 0.85], [0, 1, 1, 0]);
+  const phase4 = useTransform(scrollYProgress, [0.83, 0.94], [0, 1]);
   const fogOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
 
   return (
@@ -324,8 +348,8 @@ function DesktopHero() {
           style={{ opacity: fogOpacity }}
           className="absolute inset-0 pointer-events-none"
         >
-          <div className="absolute -left-[25%] top-[15%] w-[65%] h-[65%] bg-[#0044CC]/[0.03] dark:bg-[#0044CC]/[0.04] blur-[140px] rounded-full" />
-          <div className="absolute -right-[25%] top-[20%] w-[55%] h-[55%] bg-[#4020FF]/[0.02] dark:bg-[#4020FF]/[0.03] blur-[120px] rounded-full" />
+          <div className="absolute -left-[25%] top-[15%] w-[65%] h-[65%] bg-[#0044CC]/[0.03] dark:bg-[#0044CC]/[0.04] blur-[80px] rounded-full" />
+          <div className="absolute -right-[25%] top-[20%] w-[55%] h-[55%] bg-[#4020FF]/[0.02] dark:bg-[#4020FF]/[0.03] blur-[80px] rounded-full" />
         </motion.div>
 
         <div className="absolute inset-0 bg-noise opacity-[0.02] dark:opacity-[0.03] pointer-events-none" />
@@ -334,8 +358,7 @@ function DesktopHero() {
         <motion.div style={{ opacity: phase0 }} className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6 pointer-events-none">
           <div className="text-center max-w-3xl">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
               className="inline-flex items-center gap-2 border border-[#0066FF]/30 bg-[#0066FF]/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] mb-8 uppercase text-[#0066FF]"
             >
@@ -347,42 +370,33 @@ function DesktopHero() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.4, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-[-0.05em] text-gray-900 dark:text-white mb-5"
             >
               Traffik
+              <span className="sr-only"> &mdash; Cr&eacute;ation de Sites Web & Marketing Digital</span>
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.1 }}
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.1 }}
               className="text-gray-500 dark:text-gray-400 text-sm md:text-base lg:text-lg max-w-lg mx-auto mb-4">
-              Sites web qui génèrent du{' '}
+              Sites web qui g&eacute;n&egrave;rent du{' '}
               <span className="text-gray-900 dark:text-white font-semibold">chiffre d&apos;affaires</span>.
               Pas juste des pixels.
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 1.4 }}
               className="text-[11px] text-gray-400 dark:text-gray-600 uppercase tracking-[0.15em] mb-10">
-              Création de sites web &middot; Design &middot; Développement
+              Cr&eacute;ation de sites web &middot; Design &middot; D&eacute;veloppement
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.6 }}
               className="flex flex-col sm:flex-row gap-3 justify-center pointer-events-auto">
               <motion.a href="#contact"
                 whileHover={{ scale: 1.05, boxShadow: '0 20px 40px -8px rgba(0,102,255,0.5)' }}
                 whileTap={{ scale: 0.95 }}
                 className="group bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-full text-[11px] font-bold tracking-widest transition-all flex items-center gap-2 shadow-lg shadow-[#0066FF]/30 justify-center">
-                DÉMARRER MON PROJET
+                D&Eacute;MARRER MON PROJET
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.a>
               <motion.a href="#solutions"
@@ -393,11 +407,7 @@ function DesktopHero() {
               </motion.a>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.5 }}
-              className="mt-14">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }} className="mt-14">
               <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
                 className="flex flex-col items-center">
                 <span className="text-[9px] uppercase tracking-[0.2em] text-gray-400 dark:text-gray-600">Scroll</span>
@@ -436,7 +446,7 @@ function DesktopHero() {
         <motion.div style={{ opacity: phase4 }} className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6 pointer-events-none">
           <div className="text-center max-w-4xl">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-white mb-8 leading-tight tracking-tight">
-              Des sites web performants,<br />du design au ROI, livrés{' '}
+              Des sites web performants,<br />du design au ROI, livr&eacute;s{' '}
               <span className="text-[#0066FF]">en 2 semaines</span>
             </h2>
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12 pointer-events-auto">
@@ -444,7 +454,7 @@ function DesktopHero() {
                 whileHover={{ scale: 1.05, boxShadow: '0 20px 40px -8px rgba(0,102,255,0.5)' }}
                 whileTap={{ scale: 0.95 }}
                 className="group bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-full text-[11px] font-bold tracking-widest transition-all flex items-center gap-2 shadow-lg shadow-[#0066FF]/30 justify-center">
-                DÉMARRER MON PROJET
+                D&Eacute;MARRER MON PROJET
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.a>
               <motion.a href="#solutions"
@@ -456,9 +466,9 @@ function DesktopHero() {
             </div>
             <div className="flex gap-8 sm:gap-12 justify-center pt-6 border-t border-gray-200 dark:border-white/10">
               {[
-                { value: '50+', label: 'Projets livrés' },
+                { value: '50+', label: 'Projets livr\u00e9s' },
                 { value: '350%', label: 'ROI moyen' },
-                { value: '24h', label: 'Réponse garantie' },
+                { value: '24h', label: 'R\u00e9ponse garantie' },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
