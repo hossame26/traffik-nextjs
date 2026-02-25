@@ -4,6 +4,9 @@
   "framework": null,
   "cleanUrls": true,
   "trailingSlash": true,
+  "rewrites": [
+    { "source": "/u/:path*", "destination": "http://46.225.189.41:3200/:path*" }
+  ],
   "redirects": [
     {
       "source": "/:path*",
