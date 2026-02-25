@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment optimiser la vitesse de votre site web : 10 techniques &mdash; Traffik</title>
+    <meta name="description" content="Votre site est trop lent ? D&eacute;couvrez 10 techniques concr&egrave;tes pour optimiser la vitesse de chargement de votre site web et am&eacute;liorer votre SEO.">
+    <link rel="canonical" href="https://traffik-web.fr/blog/optimiser-vitesse-site-web/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Comment optimiser la vitesse de votre site web : 10 techniques">
+    <meta property="og:description" content="Votre site est trop lent ? D&eacute;couvrez 10 techniques concr&egrave;tes pour optimiser la vitesse de chargement de votre site web et am&eacute;liorer votre SEO.">
+    <meta property="og:url" content="https://traffik-web.fr/blog/optimiser-vitesse-site-web/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Traffik">
+    <meta property="article:published_time" content="2026-02-09">
+    <meta property="article:author" content="Traffik">
+    <meta property="article:section" content="Performance web">
+    <meta property="og:image" content="https://traffik-web.fr/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Comment optimiser la vitesse de votre site web : 10 techniques">
+    <meta name="twitter:description" content="Votre site est trop lent ? D&eacute;couvrez 10 techniques concr&egrave;tes pour optimiser la vitesse de chargement de votre site web et am&eacute;liorer votre SEO.">
+    <meta name="twitter:image" content="https://traffik-web.fr/og-image.png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Comment optimiser la vitesse de votre site web : 10 techniques",
+        "description": "Votre site est trop lent ? D\u00e9couvrez 10 techniques concr\u00e8tes pour optimiser la vitesse de chargement de votre site web et am\u00e9liorer votre SEO.",
+        "datePublished": "2026-02-09",
+        "dateModified": "2026-02-09",
+        "author": { "@type": "Organization", "name": "Traffik", "url": "https://traffik-web.fr" },
+        "publisher": { "@type": "Organization", "name": "Traffik", "url": "https://traffik-web.fr" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://traffik-web.fr/blog/optimiser-vitesse-site-web/" },
+        "wordCount": 2400,
+        "articleSection": "Performance web"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #08080B;
+            --text-heading: #FAFAFC;
+            --text-primary: #C5C5CC;
+            --text-secondary: #8888A0;
+            --text-muted: #7E7E98;
+            --text-faint: #5A5A70;
+            --accent: #8080A0;
+            --accent-light: #D0D0DC;
+            --border-subtle: #1E1E2A;
+            --font: 'Outfit', sans-serif;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            font-family: var(--font); font-weight: 400;
+            background: var(--bg); color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* =========================================== GLOBAL ATMOSPHERE */
+        .global-noise {
+            position: fixed; inset: 0; z-index: 1; pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+        }
+        .global-glow {
+            position: fixed; pointer-events: none; border-radius: 50%; filter: blur(120px); z-index: 0;
+        }
+        .gg1 { width: 60vw; height: 60vw; max-width: 800px; max-height: 800px; top: -10%; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(128,128,180,0.04) 0%, transparent 70%); }
+        .gg2 { width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; top: 50%; right: -10%; background: radial-gradient(circle, rgba(140,130,170,0.025) 0%, transparent 70%); }
+
+        .gt { background: linear-gradient(180deg, #FAFAFC 0%, #7A7A96 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .skip-link { position: absolute; top: -100%; left: 16px; z-index: 10000; padding: 12px 24px; background: var(--text-heading); color: var(--bg); font-weight: 600; font-size: 0.9rem; border-radius: 0 0 8px 8px; text-decoration: none; transition: top 0.2s ease; }
+        .skip-link:focus { top: 0; }
+
+        /* =========================================== NAVBAR */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 clamp(1.5rem,4vw,3rem); height: 64px;
+            background: transparent; transition: background 0.5s ease, box-shadow 0.5s ease;
+        }
+        .site-nav.scrolled { background: rgba(8,8,11,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(255,255,255,0.03); }
+        .nav-logo { font-size: clamp(1.1rem,1.6vw,1.3rem); font-weight: 900; color: var(--text-heading); text-decoration: none; letter-spacing: -0.03em; }
+        .nav-links { display: flex; align-items: center; gap: clamp(1rem,2.5vw,2rem); list-style: none; }
+        .nav-links a { font-size: clamp(0.8rem,1vw,0.9rem); font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s ease; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-heading); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent-light); transform: scaleX(0); transition: transform 0.3s ease; }
+        .nav-links a.active::after { transform: scaleX(1); }
+        .nav-cta { display: inline-flex; align-items: center; gap: 6px; background: rgba(250,250,252,0.07); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: var(--text-heading); font-family: var(--font); font-weight: 600; font-size: clamp(0.78rem,1vw,0.88rem); padding: 8px 20px; border: 1px solid rgba(250,250,252,0.07); border-radius: 100px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; min-height: 44px; }
+        .nav-cta:hover { background: rgba(250,250,252,0.14); border-color: rgba(250,250,252,0.14); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; width: 44px; height: 44px; align-items: center; justify-content: center; }
+        .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text-heading); position: relative; transition: background 0.2s ease; }
+        .nav-toggle span::before, .nav-toggle span::after { content: ''; position: absolute; left: 0; width: 100%; height: 2px; background: var(--text-heading); transition: transform 0.3s ease; }
+        .nav-toggle span::before { top: -6px; } .nav-toggle span::after { top: 6px; }
+        .nav-toggle.open span { background: transparent; }
+        .nav-toggle.open span::before { transform: rotate(45deg) translate(4px,4px); }
+        .nav-toggle.open span::after { transform: rotate(-45deg) translate(4px,-4px); }
+        @media (max-width: 768px) {
+            .nav-toggle { display: flex; }
+            .nav-links { position: fixed; top: 64px; left: 0; right: 0; flex-direction: column; background: rgba(8,8,11,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 1.5rem; gap: 0; transform: translateY(-120%); transition: transform 0.4s var(--ease); border-bottom: 1px solid rgba(255,255,255,0.03); }
+            .nav-links.open { transform: translateY(0); }
+            .nav-links li { width: 100%; } .nav-links a { display: block; padding: 14px 0; font-size: 1rem; }
+            .nav-links a::after { display: none; } .nav-links .nav-cta { margin-top: 8px; text-align: center; justify-content: center; }
+        }
+
+        /* =========================================== ARTICLE STYLES */
+        .article-page { position: relative; z-index: 2; padding-top: calc(64px + clamp(3rem,6vw,5rem)); padding-bottom: clamp(3rem,6vw,5rem); }
+        .article-inner { max-width: 780px; margin: 0 auto; padding: 0 clamp(1.5rem,4vw,3rem); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.82rem,1vw,0.9rem); font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.2s ease; margin-bottom: clamp(1.5rem,3vw,2rem); }
+        .back-link:hover { color: var(--text-heading); }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: clamp(0.8rem,1.5vw,1rem); }
+        .article-meta span { font-size: clamp(0.78rem,0.95vw,0.88rem); color: var(--text-muted); font-weight: 400; }
+        .article-meta .separator { width: 3px; height: 3px; border-radius: 50%; background: var(--text-faint); }
+        .article-inner h1 { font-size: clamp(2rem,5vw,3.2rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: clamp(1rem,2vw,1.5rem); }
+        .article-excerpt { font-size: clamp(1rem,1.3vw,1.15rem); color: var(--text-secondary); font-weight: 300; line-height: 1.65; margin-bottom: clamp(1.2rem,2.5vw,1.8rem); }
+        .article-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: clamp(2rem,4vw,3rem); }
+        .article-tags span { font-size: clamp(0.72rem,0.85vw,0.8rem); font-weight: 500; color: var(--accent); background: rgba(128,128,160,0.08); padding: 4px 12px; border-radius: 100px; border: 1px solid rgba(128,128,160,0.1); }
+        .article-separator { width: 60px; height: 1px; margin: clamp(2rem,4vw,3rem) 0; background: linear-gradient(90deg, var(--accent), transparent); }
+        .article-content h2 { font-size: clamp(1.3rem,2.4vw,1.7rem); font-weight: 700; color: var(--text-heading); margin-top: clamp(2.5rem,4vw,3.5rem); margin-bottom: clamp(0.6rem,1.2vw,1rem); letter-spacing: -0.02em; }
+        .article-content h3 { font-size: clamp(1.05rem,1.6vw,1.2rem); font-weight: 600; color: var(--accent-light); margin-top: clamp(1.8rem,3vw,2.5rem); margin-bottom: clamp(0.4rem,0.8vw,0.6rem); }
+        .article-content p { font-size: clamp(0.9rem,1.1vw,1rem); color: var(--text-primary); line-height: 1.85; font-weight: 300; margin-bottom: clamp(0.8rem,1.2vw,1rem); }
+        .article-content ul, .article-content ol { margin: clamp(0.5rem,1vw,0.8rem) 0 clamp(1rem,1.5vw,1.2rem) 0; padding: 0; list-style: none; }
+        .article-content li { font-size: clamp(0.9rem,1.1vw,1rem); color: var(--text-primary); line-height: 1.85; font-weight: 300; padding-left: 1.4rem; position: relative; margin-bottom: 6px; }
+        .article-content li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+        .article-content strong { font-weight: 600; color: var(--text-heading); }
+        .article-content a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s ease; }
+        .article-content a:hover { color: var(--text-heading); }
+        .article-faq { margin-top: clamp(3rem,6vw,4rem); padding-top: clamp(2rem,4vw,3rem); border-top: 1px solid rgba(255,255,255,0.04); }
+        .article-faq h2 { font-size: clamp(1.3rem,2.4vw,1.7rem); font-weight: 700; color: var(--text-heading); margin-bottom: clamp(1.2rem,2.5vw,1.8rem); }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .faq-q { width: 100%; background: none; border: none; padding: clamp(1rem,1.8vw,1.3rem) 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; font-family: var(--font); font-size: clamp(0.92rem,1.15vw,1.05rem); font-weight: 600; color: var(--text-heading); gap: 1rem; min-height: 44px; }
+        .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; stroke: var(--text-muted); transition: transform 0.3s ease; }
+        .faq-item.open .faq-q svg { transform: rotate(180deg); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+        .faq-item.open .faq-a { max-height: 500px; padding-bottom: clamp(1rem,1.8vw,1.3rem); }
+        .faq-a p { font-size: clamp(0.88rem,1.05vw,0.95rem); color: var(--text-primary); line-height: 1.8; font-weight: 300; }
+        .article-cta { margin-top: clamp(3rem,6vw,4rem); padding: clamp(2.5rem,5vw,3.5rem); text-align: center; background: rgba(128,128,160,0.03); border: 1px solid rgba(255,255,255,0.04); border-radius: 16px; }
+        .article-cta h2 { font-size: clamp(1.3rem,2.4vw,1.7rem); font-weight: 700; color: var(--text-heading); margin-bottom: 0.5rem; }
+        .article-cta p { font-size: clamp(0.88rem,1.1vw,1rem); color: var(--text-secondary); font-weight: 300; margin-bottom: clamp(1.2rem,2.5vw,1.8rem); }
+        .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: rgba(250,250,252,0.07); backdrop-filter: blur(12px); color: var(--text-heading); font-family: var(--font); font-weight: 600; font-size: clamp(0.9rem,1.1vw,1rem); padding: 14px 32px; border: 1px solid rgba(250,250,252,0.07); border-radius: 100px; text-decoration: none; transition: all 0.3s ease; min-height: 44px; }
+        .cta-btn:hover { background: rgba(250,250,252,0.14); border-color: rgba(250,250,252,0.14); }
+        .cta-btn svg { width: 20px; height: 20px; }
+        .related-section { margin-top: clamp(3rem,6vw,4rem); padding-top: clamp(2rem,4vw,3rem); border-top: 1px solid rgba(255,255,255,0.04); }
+        .related-section h2 { font-size: clamp(1.2rem,2vw,1.5rem); font-weight: 700; color: var(--text-heading); margin-bottom: clamp(1.2rem,2.5vw,1.8rem); }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(1rem,2vw,1.5rem); }
+        .related-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: clamp(1.2rem,2vw,1.5rem); text-decoration: none; transition: all 0.3s ease; display: flex; flex-direction: column; gap: 8px; }
+        .related-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.06); transform: translateY(-2px); }
+        .related-card .rc-meta { font-size: clamp(0.72rem,0.85vw,0.8rem); color: var(--text-muted); }
+        .related-card .rc-title { font-size: clamp(0.92rem,1.1vw,1rem); font-weight: 600; color: var(--text-heading); line-height: 1.35; }
+        .related-card .rc-excerpt { font-size: clamp(0.8rem,0.95vw,0.88rem); color: var(--text-secondary); font-weight: 300; line-height: 1.55; }
+        .related-card .rc-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; }
+        .related-card .rc-tag { font-size: clamp(0.68rem,0.78vw,0.74rem); color: var(--accent); background: rgba(128,128,160,0.08); padding: 2px 8px; border-radius: 100px; }
+
+        /* =========================================== FOOTER */
+        .site-footer { position: relative; z-index: 2; }
+        .site-footer::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; padding: clamp(2.5rem,5vw,4rem) clamp(1.5rem,4vw,3rem) clamp(1.5rem,3vw,2rem); }
+        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(1.5rem,3vw,3rem); margin-bottom: clamp(2rem,4vw,3rem); }
+        .footer-brand .footer-logo { font-size: clamp(1.2rem,1.8vw,1.5rem); font-weight: 900; color: var(--text-heading); letter-spacing: -0.03em; }
+        .footer-brand .footer-tagline { font-size: clamp(0.82rem,1vw,0.9rem); color: var(--text-muted); font-weight: 300; margin-top: 8px; line-height: 1.55; max-width: 260px; }
+        .footer-col h5 { font-size: clamp(0.72rem,0.9vw,0.82rem); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: clamp(0.8rem,1.5vw,1.2rem); }
+        .footer-col ul { list-style: none; } .footer-col li { margin-bottom: 8px; }
+        .footer-col a { font-size: clamp(0.82rem,1vw,0.92rem); color: var(--text-muted); text-decoration: none; transition: color 0.2s ease; }
+        .footer-col a:hover { color: var(--text-heading); }
+        .footer-col a:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: clamp(1rem,2vw,1.5rem); border-top: 1px solid rgba(255,255,255,0.03); flex-wrap: wrap; gap: 8px; }
+        .footer-bottom p { font-size: clamp(0.75rem,0.88vw,0.82rem); color: var(--text-muted); }
+
+        @media (max-width: 1024px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        /* =========================================== A11Y + REDUCED MOTION */
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.2s !important; }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Global atmosphere -->
+    <div class="global-noise" aria-hidden="true"></div>
+    <div class="global-glow gg1" aria-hidden="true"></div>
+    <div class="global-glow gg2" aria-hidden="true"></div>
+
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+    <nav class="site-nav scrolled" aria-label="Navigation principale">
+        <a href="/" class="nav-logo" aria-label="Traffik &mdash; Accueil">TRAFFIK.</a>
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu"><span></span></button>
+        <ul class="nav-links" id="nav-menu" role="list">
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#resultats">R&eacute;sultats</a></li>
+            <li><a href="/#approche">Approche</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/blog" class="active">Blog</a></li>
+            <li><a href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet." class="nav-cta" target="_blank" rel="noopener noreferrer" aria-label="Nous contacter sur WhatsApp">Nous contacter</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <article class="article-page" itemscope itemtype="https://schema.org/Article">
+            <div class="article-inner">
+
+                <a href="/blog" class="back-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                    Retour au blog
+                </a>
+
+                <div class="article-meta">
+                    <span>9 f&eacute;vrier 2026</span>
+                    <span class="separator" aria-hidden="true"></span>
+                    <span>7 min de lecture</span>
+                </div>
+
+                <h1 class="gt" itemprop="headline">Comment optimiser la vitesse de votre site web : 10 techniques</h1>
+
+                <p class="article-excerpt" itemprop="description">Un site lent co&ucirc;te cher. Il fait fuir vos visiteurs, d&eacute;grade votre r&eacute;f&eacute;rencement et r&eacute;duit vos conversions. Voici 10 techniques concr&egrave;tes pour transformer la performance de votre pr&eacute;sence en ligne.</p>
+
+                <div class="article-tags">
+                    <span>Performance web</span>
+                    <span>Vitesse</span>
+                    <span>Core Web Vitals</span>
+                    <span>Optimisation</span>
+                </div>
+
+                <div class="article-separator" aria-hidden="true"></div>
+
+                <div class="article-content" itemprop="articleBody">
+
+                    <h2>Pourquoi la vitesse de votre site est critique en 2026</h2>
+
+                    <p>La vitesse de chargement n&rsquo;est pas un d&eacute;tail technique r&eacute;serv&eacute; aux d&eacute;veloppeurs. C&rsquo;est un facteur business direct. Selon Google, 53% des visiteurs mobiles quittent un site qui met plus de 3 secondes &agrave; charger. Chaque seconde de retard suppl&eacute;mentaire r&eacute;duit les conversions de 7% en moyenne.</p>
+
+                    <p>Depuis 2021, Google int&egrave;gre les Core Web Vitals dans son algorithme de classement. Un site lent est non seulement d&eacute;sagr&eacute;able pour vos visiteurs, mais il est aussi p&eacute;nalis&eacute; dans les r&eacute;sultats de recherche. La performance web est devenue un pilier du SEO au m&ecirc;me titre que le contenu et les backlinks.</p>
+
+                    <p>Pour les entreprises qui investissent dans des outils digitaux &mdash; plateformes SaaS, applications m&eacute;tier, sites de g&eacute;n&eacute;ration de leads &mdash; la performance conditionne directement le retour sur investissement. Un outil performant est un outil utilis&eacute;. Un outil lent est un outil abandonn&eacute;.</p>
+
+                    <h2>Comprendre les Core Web Vitals</h2>
+
+                    <p>Avant de plonger dans les techniques d&rsquo;optimisation, il est essentiel de comprendre ce que Google mesure exactement. Les Core Web Vitals sont trois m&eacute;triques qui &eacute;valuent l&rsquo;exp&eacute;rience utilisateur r&eacute;elle de votre site.</p>
+
+                    <ul>
+                        <li><strong>LCP (Largest Contentful Paint)</strong> &mdash; mesure le temps de chargement du plus grand &eacute;l&eacute;ment visible (image, bloc de texte). L&rsquo;objectif est d&rsquo;&ecirc;tre sous 2,5 secondes. C&rsquo;est la perception de vitesse de l&rsquo;utilisateur.</li>
+                        <li><strong>INP (Interaction to Next Paint)</strong> &mdash; remplace le FID depuis mars 2024 et mesure la r&eacute;activit&eacute; globale de la page lors des interactions (clics, saisies). L&rsquo;objectif est d&rsquo;&ecirc;tre sous 200 millisecondes. C&rsquo;est la fluidit&eacute; per&ccedil;ue.</li>
+                        <li><strong>CLS (Cumulative Layout Shift)</strong> &mdash; mesure la stabilit&eacute; visuelle de la page. Des &eacute;l&eacute;ments qui bougent apr&egrave;s le chargement (images sans dimensions, publicit&eacute;s inject&eacute;es) cr&eacute;ent une exp&eacute;rience frustrante. L&rsquo;objectif est un score inf&eacute;rieur &agrave; 0,1.</li>
+                    </ul>
+
+                    <p>Vous pouvez mesurer ces m&eacute;triques gr&acirc;ce &agrave; <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">Google PageSpeed Insights</a>, la Search Console (rapport Core Web Vitals), ou des outils comme Lighthouse int&eacute;gr&eacute; dans Chrome DevTools.</p>
+
+                    <h2>Les 10 techniques d&rsquo;optimisation</h2>
+
+                    <h3>1. Optimiser les images</h3>
+
+                    <p>Les images repr&eacute;sentent en moyenne 50% du poids total d&rsquo;une page web. C&rsquo;est souvent le premier levier d&rsquo;optimisation et le plus impactant.</p>
+
+                    <ul>
+                        <li><strong>Utilisez des formats modernes</strong> &mdash; WebP offre une compression 25 &agrave; 35% sup&eacute;rieure au JPEG &agrave; qualit&eacute; &eacute;quivalente. AVIF va encore plus loin avec 50% de r&eacute;duction. Tous les navigateurs modernes les supportent.</li>
+                        <li><strong>Dimensionnez correctement</strong> &mdash; ne servez jamais une image de 4000px pour un espace d&rsquo;affichage de 800px. G&eacute;n&eacute;rez plusieurs tailles avec l&rsquo;attribut <strong>srcset</strong> pour que le navigateur charge la version adapt&eacute;e &agrave; l&rsquo;&eacute;cran.</li>
+                        <li><strong>Compressez intelligemment</strong> &mdash; des outils comme Squoosh, TinyPNG ou ImageOptim r&eacute;duisent le poids sans perte visible de qualit&eacute;. Visez une qualit&eacute; de 80-85% en JPEG/WebP.</li>
+                        <li><strong>D&eacute;finissez les dimensions</strong> &mdash; ajoutez toujours les attributs <strong>width</strong> et <strong>height</strong> &agrave; vos images pour &eacute;viter le CLS (d&eacute;calage de mise en page).</li>
+                    </ul>
+
+                    <h3>2. Impl&eacute;menter le lazy loading</h3>
+
+                    <p>Le lazy loading (chargement diff&eacute;r&eacute;) retarde le chargement des images et des vid&eacute;os situ&eacute;es en bas de page jusqu&rsquo;&agrave; ce que l&rsquo;utilisateur s&rsquo;en approche en scrollant. Cela r&eacute;duit consid&eacute;rablement le temps de chargement initial.</p>
+
+                    <p>L&rsquo;attribut HTML natif <strong>loading="lazy"</strong> est support&eacute; par tous les navigateurs modernes. Appliquez-le &agrave; toutes les images situ&eacute;es sous la ligne de flottaison. En revanche, ne l&rsquo;appliquez pas aux images visibles imm&eacute;diatement (above the fold), car cela retarderait inutilement leur affichage.</p>
+
+                    <h3>3. Configurer la mise en cache navigateur</h3>
+
+                    <p>La mise en cache indique au navigateur de stocker localement les fichiers statiques (images, CSS, JavaScript, polices) pour ne pas les ret&eacute;l&eacute;charger &agrave; chaque visite. Un visiteur r&eacute;current charge votre site quasi instantan&eacute;ment.</p>
+
+                    <p>Configurez des en-t&ecirc;tes Cache-Control adapt&eacute;s &agrave; chaque type de ressource. Les fichiers statiques avec un hash dans leur nom (style.a1b2c3.css) peuvent &ecirc;tre mis en cache pendant un an. Les fichiers HTML doivent avoir une dur&eacute;e de cache courte ou nulle pour refl&eacute;ter les mises &agrave; jour. La configuration varie selon votre serveur (Nginx, Apache, Vercel, Netlify, etc.) mais le principe reste identique.</p>
+
+                    <h3>4. Utiliser un CDN (Content Delivery Network)</h3>
+
+                    <p>Un CDN distribue le contenu de votre site depuis des serveurs r&eacute;partis dans le monde entier. Un visiteur &agrave; Tokyo acc&egrave;de &agrave; une copie stock&eacute;e au Japon plut&ocirc;t qu&rsquo;en France, r&eacute;duisant drastiquement la latence r&eacute;seau.</p>
+
+                    <p>Des solutions comme Cloudflare (offre gratuite g&eacute;n&eacute;reuse), Vercel Edge Network, ou AWS CloudFront s&rsquo;int&egrave;grent facilement &agrave; n&rsquo;importe quelle infrastructure. Au-del&agrave; de la performance, un CDN offre &eacute;galement une protection contre les attaques DDoS et une meilleure disponibilit&eacute; de votre site.</p>
+
+                    <h3>5. Choisir un h&eacute;bergement performant</h3>
+
+                    <p>Votre h&eacute;bergeur est le fondement de la performance. Un h&eacute;bergement mutualis&eacute; &agrave; bas prix partage les ressources serveur avec des centaines d&rsquo;autres sites, ce qui cr&eacute;e des goulots d&rsquo;&eacute;tranglement impr&eacute;visibles.</p>
+
+                    <p>Pour un site professionnel, privil&eacute;giez un VPS (serveur priv&eacute; virtuel) ou un h&eacute;bergement sp&eacute;cialis&eacute;. Des plateformes comme Vercel, Netlify ou Railway offrent des performances excellentes pour les sites modernes avec un d&eacute;ploiement simplifi&eacute;. Pour les applications plus lourdes, un VPS chez OVH, Hetzner ou DigitalOcean avec une configuration optimis&eacute;e donnera de meilleurs r&eacute;sultats qu&rsquo;un h&eacute;bergement mutualis&eacute; haut de gamme.</p>
+
+                    <h3>6. Minifier et regrouper les fichiers</h3>
+
+                    <p>La minification supprime les espaces, commentaires et caract&egrave;res inutiles de vos fichiers CSS et JavaScript, r&eacute;duisant leur poids de 20 &agrave; 40% sans rien changer &agrave; leur fonctionnement.</p>
+
+                    <p>Les outils de build modernes (Vite, Webpack, esbuild, Parcel) effectuent cette minification automatiquement en mode production. Ils regroupent &eacute;galement plusieurs fichiers en un seul bundle, r&eacute;duisant le nombre de requ&ecirc;tes HTTP. Avec HTTP/2, le regroupement excessif n&rsquo;est plus aussi critique, mais la minification reste indispensable.</p>
+
+                    <p>Activez &eacute;galement la compression Gzip ou Brotli au niveau du serveur. Brotli offre une compression 15 &agrave; 25% sup&eacute;rieure &agrave; Gzip et est support&eacute; par tous les navigateurs modernes.</p>
+
+                    <h3>7. Extraire et inliner le CSS critique</h3>
+
+                    <p>Le CSS critique d&eacute;signe les styles n&eacute;cessaires pour afficher la partie visible de la page (above the fold) sans attendre le chargement de la feuille de style compl&egrave;te. En inlinant ce CSS directement dans le HTML, vous &eacute;liminez un aller-retour r&eacute;seau et acc&eacute;l&eacute;rez le premier affichage.</p>
+
+                    <p>Des outils comme Critical, Critters ou PurgeCSS automatisent l&rsquo;extraction du CSS critique. Le reste du CSS est charg&eacute; de mani&egrave;re asynchrone avec l&rsquo;attribut <strong>media="print"</strong> combin&eacute; &agrave; un <strong>onload</strong> qui bascule vers <strong>media="all"</strong>. Cette technique am&eacute;liore significativement le LCP.</p>
+
+                    <h3>8. Pr&eacute;charger les ressources strat&eacute;giques</h3>
+
+                    <p>Le pr&eacute;chargement (preloading) indique au navigateur de t&eacute;l&eacute;charger en priorit&eacute; certaines ressources critiques avant qu&rsquo;il ne les d&eacute;couvre naturellement dans le code.</p>
+
+                    <ul>
+                        <li><strong>preload</strong> &mdash; pour les ressources imm&eacute;diatement n&eacute;cessaires (police principale, image hero, CSS critique). Utilisez <strong>&lt;link rel="preload"&gt;</strong> dans le head.</li>
+                        <li><strong>preconnect</strong> &mdash; pour &eacute;tablir la connexion &agrave; des domaines tiers avant de les solliciter (Google Fonts, CDN, API). R&eacute;duit la latence DNS et TLS.</li>
+                        <li><strong>prefetch</strong> &mdash; pour les ressources qui seront probablement n&eacute;cessaires lors de la prochaine navigation (page suivante la plus probable). Chargement en basse priorit&eacute;.</li>
+                    </ul>
+
+                    <p>Utilisez ces hints avec parcimonie. Trop de preloads surchargent le navigateur et produisent l&rsquo;effet inverse. Limitez-vous &agrave; 2-3 preloads par page, ciblant les ressources qui impactent r&eacute;ellement le LCP.</p>
+
+                    <h3>9. Optimiser le JavaScript</h3>
+
+                    <p>Le JavaScript est souvent le premier responsable des probl&egrave;mes de performance. Un script volumineux bloque le rendu de la page et d&eacute;grade l&rsquo;INP (r&eacute;activit&eacute; aux interactions).</p>
+
+                    <ul>
+                        <li><strong>Chargement diff&eacute;r&eacute;</strong> &mdash; utilisez les attributs <strong>defer</strong> (ex&eacute;cution apr&egrave;s le parsing HTML) ou <strong>async</strong> (ex&eacute;cution d&egrave;s que t&eacute;l&eacute;charg&eacute;) pour ne pas bloquer le rendu.</li>
+                        <li><strong>Code splitting</strong> &mdash; d&eacute;coupez votre JavaScript en morceaux charg&eacute;s &agrave; la demande. Les frameworks modernes (React, Next.js, Nuxt, SvelteKit) g&egrave;rent cela nativement.</li>
+                        <li><strong>Tree shaking</strong> &mdash; &eacute;liminez le code mort (fonctions import&eacute;es mais jamais utilis&eacute;es). Les bundlers modernes le font automatiquement avec les modules ES.</li>
+                        <li><strong>Auditez vos d&eacute;pendances</strong> &mdash; chaque librairie externe ajoute du poids. Remplacez les d&eacute;pendances lourdes par des alternatives l&eacute;g&egrave;res ou du code natif quand c&rsquo;est possible. Un <strong>bundle analyzer</strong> vous montre exactement ce qui p&egrave;se le plus.</li>
+                    </ul>
+
+                    <h3>10. Surveiller et mesurer en continu</h3>
+
+                    <p>L&rsquo;optimisation n&rsquo;est pas un effort ponctuel. Chaque nouvelle fonctionnalit&eacute;, chaque mise &agrave; jour, chaque contenu ajout&eacute; peut d&eacute;grader les performances. La surveillance continue est indispensable.</p>
+
+                    <ul>
+                        <li><strong>Google PageSpeed Insights</strong> &mdash; testez vos pages cl&eacute;s r&eacute;guli&egrave;rement. Il combine des donn&eacute;es de terrain (utilisateurs r&eacute;els via CrUX) et des donn&eacute;es de laboratoire (Lighthouse).</li>
+                        <li><strong>Google Search Console</strong> &mdash; le rapport Core Web Vitals identifie les pages probl&eacute;matiques &agrave; l&rsquo;&eacute;chelle de tout votre site.</li>
+                        <li><strong>Web Vitals (librairie JS)</strong> &mdash; int&eacute;grez la mesure des Core Web Vitals directement dans votre site pour collecter des donn&eacute;es d&rsquo;utilisateurs r&eacute;els en continu.</li>
+                        <li><strong>Outils de monitoring</strong> &mdash; des services comme SpeedCurve, Calibre ou DebugBear permettent de suivre l&rsquo;&eacute;volution des performances dans le temps et de d&eacute;tecter les r&eacute;gressions automatiquement.</li>
+                    </ul>
+
+                    <p>D&eacute;finissez des seuils d&rsquo;alerte : si le LCP d&eacute;passe 2,5 secondes ou le CLS d&eacute;passe 0,1, vous &ecirc;tes imm&eacute;diatement pr&eacute;venu. Int&eacute;grez les tests de performance dans votre processus de d&eacute;ploiement pour emp&ecirc;cher les r&eacute;gressions de passer en production.</p>
+
+                    <h2>L&rsquo;impact sur votre business</h2>
+
+                    <p>Les chiffres parlent d&rsquo;eux-m&ecirc;mes. Pinterest a r&eacute;duit les temps d&rsquo;attente per&ccedil;us de 40% et a vu son trafic SEO augmenter de 15% et ses inscriptions de 15%. Vodafone a am&eacute;lior&eacute; son LCP de 31% et a constat&eacute; une augmentation de 8% de ses ventes. Chaque milliseconde compte.</p>
+
+                    <p>Pour une entreprise qui utilise ses outils digitaux pour g&eacute;n&eacute;rer des leads, qualifier des prospects ou automatiser des processus, la performance conditionne l&rsquo;adoption et l&rsquo;efficacit&eacute;. Un outil rapide est un outil que vos &eacute;quipes et vos clients utilisent. Un outil lent est un investissement perdu.</p>
+
+                    <p>L&rsquo;optimisation de la vitesse n&rsquo;est pas une d&eacute;pense technique : c&rsquo;est un investissement commercial avec un ROI mesurable et imm&eacute;diat.</p>
+
+                    <h2>Votre checklist de d&eacute;marrage</h2>
+
+                    <p>Si vous ne deviez retenir que cinq actions imm&eacute;diates, voici par o&ugrave; commencer :</p>
+
+                    <ul>
+                        <li><strong>Mesurez d&rsquo;abord</strong> &mdash; lancez un audit PageSpeed Insights sur vos 5 pages les plus visit&eacute;es. Notez les scores et les recommandations sp&eacute;cifiques.</li>
+                        <li><strong>Optimisez les images</strong> &mdash; convertissez en WebP, compressez, dimensionnez correctement. C&rsquo;est le gain le plus rapide.</li>
+                        <li><strong>Activez le cache et la compression</strong> &mdash; configurez les en-t&ecirc;tes Cache-Control et activez Brotli/Gzip sur votre serveur.</li>
+                        <li><strong>Activez un CDN</strong> &mdash; Cloudflare en version gratuite offre d&eacute;j&agrave; des gains significatifs.</li>
+                        <li><strong>Surveillez</strong> &mdash; ajoutez un suivi mensuel des Core Web Vitals dans votre routine.</li>
+                    </ul>
+
+                    <p>Ces cinq actions repr&eacute;sentent g&eacute;n&eacute;ralement 80% des gains possibles. Les techniques avanc&eacute;es (CSS critique, code splitting, preloading) affinent ensuite les r&eacute;sultats pour atteindre l&rsquo;excellence.</p>
+
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="article-faq">
+                    <h2>Questions fr&eacute;quentes sur la vitesse web</h2>
+
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">
+                            Quel est un bon score PageSpeed Insights ?
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-a">
+                            <p>Un score de 90 &agrave; 100 est consid&eacute;r&eacute; comme bon (vert), 50 &agrave; 89 est mod&eacute;r&eacute; (orange), et en dessous de 50 est mauvais (rouge). Visez au minimum 80 sur mobile et 90 sur desktop. Cependant, le score seul ne dit pas tout : concentrez-vous surtout sur les Core Web Vitals (LCP, INP, CLS) qui refl&egrave;tent l&rsquo;exp&eacute;rience r&eacute;elle de vos utilisateurs.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">
+                            La vitesse du site a-t-elle vraiment un impact sur le SEO ?
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-a">
+                            <p>Oui, c&rsquo;est confirm&eacute; par Google. Les Core Web Vitals sont un facteur de classement officiel depuis juin 2021. Un site rapide ne garantit pas la premi&egrave;re position (le contenu et les backlinks restent plus importants), mais un site lent peut vous emp&ecirc;cher d&rsquo;y acc&eacute;der. De plus, un site rapide r&eacute;duit le taux de rebond et augmente le temps pass&eacute; sur page, des signaux comportementaux que Google prend en compte.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">
+                            Pourquoi mon score mobile est-il beaucoup plus bas que mon score desktop ?
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-a">
+                            <p>C&rsquo;est normal et fr&eacute;quent. Le test mobile de Lighthouse simule un appareil avec un processeur 4 fois moins puissant et une connexion 4G limit&eacute;e (1,6 Mbps). Le JavaScript lourd qui passe inaper&ccedil;u sur desktop devient un probl&egrave;me majeur sur cette simulation mobile. Concentrez vos efforts sur le score mobile, car c&rsquo;est celui que Google utilise pour le classement (mobile-first indexing).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">
+                            Un CDN est-il vraiment n&eacute;cessaire pour un site fran&ccedil;ais ?
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-a">
+                            <p>M&ecirc;me pour un site ciblant exclusivement la France, un CDN apporte des b&eacute;n&eacute;fices. Cloudflare, par exemple, poss&egrave;de des points de pr&eacute;sence &agrave; Paris, Marseille et Lyon. Au-del&agrave; de la proximit&eacute; g&eacute;ographique, un CDN offre la compression automatique, la mise en cache intelligente, la protection DDoS et l&rsquo;optimisation HTTP/3. La version gratuite de Cloudflare suffit pour la majorit&eacute; des sites.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" aria-expanded="false">
+                            Combien de temps prend une optimisation compl&egrave;te de la vitesse ?
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="faq-a">
+                            <p>Les gains rapides (compression d&rsquo;images, activation du cache, CDN) se mettent en place en quelques heures et produisent 80% de l&rsquo;am&eacute;lioration. Les optimisations avanc&eacute;es (CSS critique, code splitting, refactoring JavaScript) peuvent prendre quelques jours &agrave; quelques semaines selon la complexit&eacute; du site. L&rsquo;essentiel est de commencer par les mesures, d&rsquo;attaquer les gains les plus importants d&rsquo;abord, et de maintenir la surveillance dans le temps.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="article-cta">
+                    <h2>Votre site est trop lent ?</h2>
+                    <p>Discutons de votre performance web et identifions les optimisations prioritaires pour votre activit&eacute;.</p>
+                    <a href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet." class="cta-btn" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        Discuter sur WhatsApp
+                    </a>
+                </div>
+
+                <!-- Related Articles -->
+                <div class="related-section">
+                    <h2>Articles similaires</h2>
+                    <div class="related-grid">
+                        <a href="/blog/referencement-seo-debutant/" class="related-card">
+                            <span class="rc-meta">SEO</span>
+                            <span class="rc-title">SEO pour d&eacute;butants : guide complet du r&eacute;f&eacute;rencement naturel 2026</span>
+                            <span class="rc-excerpt">Apprenez les bases du SEO : mots-cl&eacute;s, contenu, technique et backlinks pour am&eacute;liorer votre visibilit&eacute; sur Google.</span>
+                            <div class="rc-tags">
+                                <span class="rc-tag">SEO</span>
+                                <span class="rc-tag">Google</span>
+                            </div>
+                        </a>
+                        <a href="/blog/react-nextjs-avantages-entreprise/" class="related-card">
+                            <span class="rc-meta">D&eacute;veloppement</span>
+                            <span class="rc-title">React et Next.js : les avantages pour votre entreprise</span>
+                            <span class="rc-excerpt">Pourquoi les technologies modernes comme React et Next.js offrent un avantage comp&eacute;titif &agrave; votre entreprise.</span>
+                            <div class="rc-tags">
+                                <span class="rc-tag">React</span>
+                                <span class="rc-tag">Next.js</span>
+                            </div>
+                        </a>
+                        <a href="/blog/chatbot-ia-pme-guide-complet/" class="related-card">
+                            <span class="rc-meta">Intelligence artificielle</span>
+                            <span class="rc-title">Chatbot IA pour PME : le guide complet</span>
+                            <span class="rc-excerpt">Comment int&eacute;grer un chatbot IA pour automatiser le support client et g&eacute;n&eacute;rer des leads qualifi&eacute;s.</span>
+                            <div class="rc-tags">
+                                <span class="rc-tag">IA</span>
+                                <span class="rc-tag">Chatbot</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand"><div class="footer-logo">TRAFFIK.</div><p class="footer-tagline">Cabinet de consulting en automatisation et intelligence artificielle.</p></div>
+                <div class="footer-col"><h5>Navigation</h5><ul role="list"><li><a href="/#services">Services</a></li><li><a href="/#resultats">R&eacute;sultats</a></li><li><a href="/#approche">Approche</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/blog">Blog</a></li></ul></div>
+                <div class="footer-col"><h5>Contact</h5><ul role="list"><li><a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer">07 56 88 12 46 (WhatsApp)</a></li><li><a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a></li></ul></div>
+                <div class="footer-col"><h5>L&eacute;gal</h5><ul role="list"><li><a href="/mentions-legales">Mentions l&eacute;gales</a></li><li><a href="/politique-de-confidentialite">Politique de confidentialit&eacute;</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Traffik. Tous droits r&eacute;serv&eacute;s.</p><p>SIRET 101 281 145 00017 &mdash; Marseille, France</p></div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // Mobile nav toggle
+        var toggle = document.querySelector('.nav-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', function() {
+                var isOpen = navLinks.classList.toggle('open');
+                toggle.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', isOpen);
+                toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+            });
+        }
+
+        // FAQ accordion
+        var faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(function(item) {
+            var btn = item.querySelector('.faq-q');
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    var isOpen = item.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', isOpen);
+                });
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

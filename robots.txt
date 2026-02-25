@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://traffik-web.fr/sitemap.xml

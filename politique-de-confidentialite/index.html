@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialit&eacute; &mdash; Traffik</title>
+    <meta name="description" content="Politique de confidentialit&eacute; de Traffik. Informations sur la collecte, le traitement et la protection de vos donn&eacute;es personnelles conform&eacute;ment au RGPD.">
+    <link rel="canonical" href="https://traffik-web.fr/politique-de-confidentialite/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Politique de Confidentialit&eacute; &mdash; Traffik">
+    <meta property="og:description" content="Politique de confidentialit&eacute; de Traffik. Informations sur la collecte, le traitement et la protection de vos donn&eacute;es personnelles.">
+    <meta property="og:url" content="https://traffik-web.fr/politique-de-confidentialite/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Traffik">
+    <meta property="og:image" content="https://traffik-web.fr/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Politique de Confidentialit&eacute; &mdash; Traffik">
+    <meta name="twitter:description" content="Politique de confidentialit&eacute; de Traffik. Informations sur la collecte, le traitement et la protection de vos donn&eacute;es personnelles.">
+    <meta name="twitter:image" content="https://traffik-web.fr/og-image.png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #08080B;
+            --text-heading: #FAFAFC;
+            --text-primary: #C5C5CC;
+            --text-secondary: #8888A0;
+            --text-muted: #7E7E98;
+            --text-faint: #5A5A70;
+            --accent: #8080A0;
+            --accent-light: #D0D0DC;
+            --border-subtle: #1E1E2A;
+            --font: 'Outfit', sans-serif;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            font-family: var(--font); font-weight: 400;
+            background: var(--bg); color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* =========================================== GLOBAL ATMOSPHERE */
+        .global-noise {
+            position: fixed; inset: 0; z-index: 1; pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+        }
+        .global-glow {
+            position: fixed; pointer-events: none; border-radius: 50%; filter: blur(120px); z-index: 0;
+        }
+        .gg1 { width: 60vw; height: 60vw; max-width: 800px; max-height: 800px; top: -10%; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(128,128,180,0.04) 0%, transparent 70%); }
+        .gg2 { width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; top: 50%; right: -10%; background: radial-gradient(circle, rgba(140,130,170,0.025) 0%, transparent 70%); }
+
+        .gt { background: linear-gradient(180deg, #FAFAFC 0%, #7A7A96 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .skip-link { position: absolute; top: -100%; left: 16px; z-index: 10000; padding: 12px 24px; background: var(--text-heading); color: var(--bg); font-weight: 600; font-size: 0.9rem; border-radius: 0 0 8px 8px; text-decoration: none; transition: top 0.2s ease; }
+        .skip-link:focus { top: 0; }
+
+        /* =========================================== NAVBAR */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 clamp(1.5rem,4vw,3rem); height: 64px;
+            background: transparent; transition: background 0.5s ease, box-shadow 0.5s ease;
+        }
+        .site-nav.scrolled { background: rgba(8,8,11,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(255,255,255,0.03); }
+        .nav-logo { font-size: clamp(1.1rem,1.6vw,1.3rem); font-weight: 900; color: var(--text-heading); text-decoration: none; letter-spacing: -0.03em; }
+        .nav-links { display: flex; align-items: center; gap: clamp(1rem,2.5vw,2rem); list-style: none; }
+        .nav-links a { font-size: clamp(0.8rem,1vw,0.9rem); font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s ease; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-heading); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent-light); transform: scaleX(0); transition: transform 0.3s ease; }
+        .nav-links a.active::after { transform: scaleX(1); }
+        .nav-cta { display: inline-flex; align-items: center; gap: 6px; background: rgba(250,250,252,0.07); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: var(--text-heading); font-family: var(--font); font-weight: 600; font-size: clamp(0.78rem,1vw,0.88rem); padding: 8px 20px; border: 1px solid rgba(250,250,252,0.07); border-radius: 100px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; min-height: 44px; }
+        .nav-cta:hover { background: rgba(250,250,252,0.14); border-color: rgba(250,250,252,0.14); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; width: 44px; height: 44px; align-items: center; justify-content: center; }
+        .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text-heading); position: relative; transition: background 0.2s ease; }
+        .nav-toggle span::before, .nav-toggle span::after { content: ''; position: absolute; left: 0; width: 100%; height: 2px; background: var(--text-heading); transition: transform 0.3s ease; }
+        .nav-toggle span::before { top: -6px; } .nav-toggle span::after { top: 6px; }
+        .nav-toggle.open span { background: transparent; }
+        .nav-toggle.open span::before { transform: rotate(45deg) translate(4px,4px); }
+        .nav-toggle.open span::after { transform: rotate(-45deg) translate(4px,-4px); }
+        @media (max-width: 768px) {
+            .nav-toggle { display: flex; }
+            .nav-links { position: fixed; top: 64px; left: 0; right: 0; flex-direction: column; background: rgba(8,8,11,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 1.5rem; gap: 0; transform: translateY(-120%); transition: transform 0.4s var(--ease); border-bottom: 1px solid rgba(255,255,255,0.03); }
+            .nav-links.open { transform: translateY(0); }
+            .nav-links li { width: 100%; } .nav-links a { display: block; padding: 14px 0; font-size: 1rem; }
+            .nav-links a::after { display: none; } .nav-links .nav-cta { margin-top: 8px; text-align: center; justify-content: center; }
+        }
+
+        /* =========================================== LEGAL CONTENT */
+        .legal-page { position: relative; z-index: 2; padding-top: calc(64px + clamp(3rem,6vw,5rem)); padding-bottom: clamp(3rem,6vw,5rem); }
+        .legal-inner { max-width: 780px; margin: 0 auto; padding: 0 clamp(1.5rem,4vw,3rem); }
+        .legal-inner h1 {
+            font-size: clamp(2rem,5vw,3.2rem); font-weight: 900; line-height: 1.1;
+            letter-spacing: -0.03em; color: var(--text-heading); margin-bottom: clamp(0.5rem,1.5vw,1rem);
+        }
+        .legal-date { font-size: clamp(0.82rem,1vw,0.92rem); color: var(--text-muted); font-weight: 300; margin-bottom: clamp(2rem,4vw,3rem); }
+        .legal-inner h2 {
+            font-size: clamp(1.2rem,2.2vw,1.6rem); font-weight: 700; color: var(--text-heading);
+            margin-top: clamp(2.5rem,4vw,3.5rem); margin-bottom: clamp(0.6rem,1.2vw,1rem);
+            letter-spacing: -0.02em;
+        }
+        .legal-inner h3 {
+            font-size: clamp(1rem,1.5vw,1.15rem); font-weight: 600; color: var(--accent-light);
+            margin-top: clamp(1.5rem,2.5vw,2rem); margin-bottom: clamp(0.4rem,0.8vw,0.6rem);
+        }
+        .legal-inner p {
+            font-size: clamp(0.88rem,1.1vw,1rem); color: var(--text-primary); line-height: 1.8;
+            font-weight: 300; margin-bottom: clamp(0.6rem,1vw,0.8rem);
+        }
+        .legal-inner ul {
+            list-style: none; margin: clamp(0.5rem,1vw,0.8rem) 0 clamp(0.8rem,1.5vw,1.2rem) 0;
+            padding: 0;
+        }
+        .legal-inner ul li {
+            font-size: clamp(0.88rem,1.1vw,1rem); color: var(--text-primary); line-height: 1.8;
+            font-weight: 300; padding-left: 1.2rem; position: relative; margin-bottom: 4px;
+        }
+        .legal-inner ul li::before {
+            content: ''; position: absolute; left: 0; top: 0.7em;
+            width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
+        }
+        .legal-inner a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s ease; }
+        .legal-inner a:hover { color: var(--text-heading); }
+        .legal-separator {
+            width: 60px; height: 1px; margin: clamp(2rem,4vw,3rem) 0;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        /* =========================================== FOOTER */
+        .site-footer { position: relative; z-index: 2; }
+        .site-footer::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; padding: clamp(2.5rem,5vw,4rem) clamp(1.5rem,4vw,3rem) clamp(1.5rem,3vw,2rem); }
+        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(1.5rem,3vw,3rem); margin-bottom: clamp(2rem,4vw,3rem); }
+        .footer-brand .footer-logo { font-size: clamp(1.2rem,1.8vw,1.5rem); font-weight: 900; color: var(--text-heading); letter-spacing: -0.03em; }
+        .footer-brand .footer-tagline { font-size: clamp(0.82rem,1vw,0.9rem); color: var(--text-muted); font-weight: 300; margin-top: 8px; line-height: 1.55; max-width: 260px; }
+        .footer-col h5 { font-size: clamp(0.72rem,0.9vw,0.82rem); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: clamp(0.8rem,1.5vw,1.2rem); }
+        .footer-col ul { list-style: none; } .footer-col li { margin-bottom: 8px; }
+        .footer-col a { font-size: clamp(0.82rem,1vw,0.92rem); color: var(--text-muted); text-decoration: none; transition: color 0.2s ease; }
+        .footer-col a:hover { color: var(--text-heading); }
+        .footer-col a:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: clamp(1rem,2vw,1.5rem); border-top: 1px solid rgba(255,255,255,0.03); flex-wrap: wrap; gap: 8px; }
+        .footer-bottom p { font-size: clamp(0.75rem,0.88vw,0.82rem); color: var(--text-muted); }
+
+        @media (max-width: 1024px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        /* =========================================== A11Y + REDUCED MOTION */
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.2s !important; }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Global atmosphere -->
+    <div class="global-noise" aria-hidden="true"></div>
+    <div class="global-glow gg1" aria-hidden="true"></div>
+    <div class="global-glow gg2" aria-hidden="true"></div>
+
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+    <nav class="site-nav scrolled" aria-label="Navigation principale">
+        <a href="/" class="nav-logo" aria-label="Traffik &mdash; Accueil">TRAFFIK.</a>
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu"><span></span></button>
+        <ul class="nav-links" id="nav-menu" role="list">
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#resultats">R&eacute;sultats</a></li>
+            <li><a href="/#approche">Approche</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet." class="nav-cta" target="_blank" rel="noopener noreferrer" aria-label="Nous contacter sur WhatsApp">Nous contacter</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <div class="legal-page">
+            <div class="legal-inner">
+
+                <h1 class="gt">Politique de Confidentialit&eacute;</h1>
+                <p class="legal-date">Derni&egrave;re mise &agrave; jour : 24 f&eacute;vrier 2026</p>
+
+                <p>La pr&eacute;sente politique de confidentialit&eacute; d&eacute;crit comment Traffik (ci-apr&egrave;s &laquo;&nbsp;nous&nbsp;&raquo;, &laquo;&nbsp;notre&nbsp;&raquo;, &laquo;&nbsp;Traffik&nbsp;&raquo;) collecte, utilise et prot&egrave;ge vos donn&eacute;es personnelles lorsque vous utilisez le site traffik-web.fr (ci-apr&egrave;s &laquo;&nbsp;le Site&nbsp;&raquo;), conform&eacute;ment au R&egrave;glement G&eacute;n&eacute;ral sur la Protection des Donn&eacute;es (RGPD &mdash; R&egrave;glement UE 2016/679) et &agrave; la loi Informatique et Libert&eacute;s du 6 janvier 1978 modifi&eacute;e.</p>
+
+                <div class="legal-separator" aria-hidden="true"></div>
+
+                <!-- 1. Responsable du traitement -->
+                <h2>1. Responsable du traitement</h2>
+                <p>Le responsable du traitement des donn&eacute;es personnelles collect&eacute;es sur le Site est :</p>
+                <ul>
+                    <li><strong>Entreprise :</strong> Traffik (Entrepreneur individuel — Hossame-Eddine Laib)</li>
+                    <li><strong>SIRET :</strong> 101 281 145 00017</li>
+                    <li><strong>Adresse :</strong> 48 rue Saint Jacques, 13006 Marseille, France</li>
+                    <li><strong>Site web :</strong> <a href="https://traffik-web.fr">traffik-web.fr</a></li>
+                    <li><strong>Email :</strong> <a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a></li>
+                    <li><strong>T&eacute;l&eacute;phone (WhatsApp) :</strong> 07 56 88 12 46</li>
+                    <li><strong>Pays :</strong> France</li>
+                </ul>
+
+                <!-- 2. Données collectées -->
+                <h2>2. Donn&eacute;es collect&eacute;es</h2>
+                <p>Nous collectons les cat&eacute;gories de donn&eacute;es personnelles suivantes :</p>
+
+                <h3>2.1 Donn&eacute;es fournies volontairement</h3>
+                <ul>
+                    <li><strong>Adresse email</strong> &mdash; lorsque vous nous contactez via le formulaire de contact ou par email</li>
+                    <li><strong>Nom et pr&eacute;nom</strong> &mdash; si vous les communiquez lors d&rsquo;un &eacute;change</li>
+                    <li><strong>Num&eacute;ro de t&eacute;l&eacute;phone</strong> &mdash; si vous nous contactez par WhatsApp ou le communiquez volontairement</li>
+                    <li><strong>Contenu du message</strong> &mdash; toute information que vous nous transmettez librement</li>
+                </ul>
+
+                <h3>2.2 Donn&eacute;es collect&eacute;es automatiquement</h3>
+                <ul>
+                    <li><strong>Donn&eacute;es de navigation</strong> &mdash; adresse IP (anonymis&eacute;e), type de navigateur, syst&egrave;me d&rsquo;exploitation, pages visit&eacute;es, dur&eacute;e de visite</li>
+                    <li><strong>Donn&eacute;es analytiques</strong> &mdash; statistiques de fr&eacute;quentation agr&eacute;g&eacute;es et anonymis&eacute;es</li>
+                    <li><strong>Cookies techniques</strong> &mdash; n&eacute;cessaires au fonctionnement du Site</li>
+                </ul>
+
+                <!-- 3. Finalités du traitement -->
+                <h2>3. Finalit&eacute;s du traitement</h2>
+                <p>Vos donn&eacute;es personnelles sont trait&eacute;es pour les finalit&eacute;s suivantes :</p>
+                <ul>
+                    <li><strong>R&eacute;pondre &agrave; vos demandes</strong> &mdash; traitement des messages re&ccedil;us via le formulaire de contact, par email ou WhatsApp</li>
+                    <li><strong>Gestion de la relation commerciale</strong> &mdash; &eacute;tablissement de devis, suivi de projet, facturation</li>
+                    <li><strong>Am&eacute;lioration du Site</strong> &mdash; analyse statistique de la fr&eacute;quentation pour optimiser l&rsquo;exp&eacute;rience utilisateur</li>
+                    <li><strong>Respect des obligations l&eacute;gales</strong> &mdash; conservation des donn&eacute;es requises par la loi (comptabilit&eacute;, fiscalit&eacute;)</li>
+                </ul>
+
+                <!-- 4. Base légale -->
+                <h2>4. Base l&eacute;gale du traitement</h2>
+                <p>Conform&eacute;ment &agrave; l&rsquo;article 6 du RGPD, le traitement de vos donn&eacute;es repose sur les bases l&eacute;gales suivantes :</p>
+                <ul>
+                    <li><strong>Votre consentement</strong> (article 6.1.a) &mdash; lorsque vous nous contactez volontairement ou acceptez les cookies non essentiels</li>
+                    <li><strong>L&rsquo;ex&eacute;cution d&rsquo;un contrat</strong> (article 6.1.b) &mdash; lorsque le traitement est n&eacute;cessaire &agrave; la r&eacute;alisation d&rsquo;une prestation que vous avez demand&eacute;e</li>
+                    <li><strong>L&rsquo;int&eacute;r&ecirc;t l&eacute;gitime</strong> (article 6.1.f) &mdash; pour l&rsquo;am&eacute;lioration de nos services et l&rsquo;analyse statistique anonymis&eacute;e</li>
+                    <li><strong>L&rsquo;obligation l&eacute;gale</strong> (article 6.1.c) &mdash; pour le respect de nos obligations comptables et fiscales</li>
+                </ul>
+
+                <!-- 5. Durée de conservation -->
+                <h2>5. Dur&eacute;e de conservation</h2>
+                <p>Vos donn&eacute;es personnelles sont conserv&eacute;es pendant une dur&eacute;e proportionn&eacute;e &agrave; la finalit&eacute; pour laquelle elles ont &eacute;t&eacute; collect&eacute;es :</p>
+                <ul>
+                    <li><strong>Donn&eacute;es de contact (prospects)</strong> &mdash; 3 ans &agrave; compter du dernier contact</li>
+                    <li><strong>Donn&eacute;es clients</strong> &mdash; dur&eacute;e de la relation contractuelle, puis 5 ans &agrave; des fins comptables</li>
+                    <li><strong>Donn&eacute;es de navigation / analytics</strong> &mdash; 13 mois maximum (donn&eacute;es anonymis&eacute;es)</li>
+                    <li><strong>Cookies</strong> &mdash; 13 mois maximum conform&eacute;ment aux recommandations de la CNIL</li>
+                </ul>
+                <p>Au-del&agrave; de ces dur&eacute;es, vos donn&eacute;es sont supprim&eacute;es ou irr&eacute;versiblement anonymis&eacute;es.</p>
+
+                <!-- 6. Destinataires des données -->
+                <h2>6. Destinataires des donn&eacute;es</h2>
+                <p>Vos donn&eacute;es personnelles sont strictement confidentielles. Elles peuvent &ecirc;tre transmises aux destinataires suivants :</p>
+                <ul>
+                    <li><strong>L&rsquo;&eacute;quipe Traffik</strong> &mdash; uniquement les personnes habilit&eacute;es dans le cadre de leurs fonctions</li>
+                    <li><strong>Sous-traitants techniques</strong> &mdash; h&eacute;bergeur web, outils d&rsquo;analyse statistique (dans le respect du RGPD)</li>
+                    <li><strong>Autorit&eacute;s comp&eacute;tentes</strong> &mdash; uniquement sur demande l&eacute;gale (administration fiscale, autorit&eacute;s judiciaires)</li>
+                </ul>
+                <p>Nous ne vendons, ne louons et ne c&eacute;dons jamais vos donn&eacute;es personnelles &agrave; des tiers &agrave; des fins commerciales.</p>
+                <p>Aucun transfert de donn&eacute;es en dehors de l&rsquo;Union Europ&eacute;enne n&rsquo;est effectu&eacute; sans garanties ad&eacute;quates conform&eacute;ment au RGPD.</p>
+
+                <!-- 7. Vos droits -->
+                <h2>7. Vos droits</h2>
+                <p>Conform&eacute;ment au RGPD et &agrave; la loi Informatique et Libert&eacute;s, vous disposez des droits suivants :</p>
+                <ul>
+                    <li><strong>Droit d&rsquo;acc&egrave;s</strong> (article 15) &mdash; obtenir la confirmation que des donn&eacute;es vous concernant sont trait&eacute;es et acc&eacute;der &agrave; celles-ci</li>
+                    <li><strong>Droit de rectification</strong> (article 16) &mdash; corriger des donn&eacute;es inexactes ou incompl&egrave;tes</li>
+                    <li><strong>Droit &agrave; l&rsquo;effacement</strong> (article 17) &mdash; demander la suppression de vos donn&eacute;es dans les conditions pr&eacute;vues par la loi</li>
+                    <li><strong>Droit &agrave; la portabilit&eacute;</strong> (article 20) &mdash; recevoir vos donn&eacute;es dans un format structur&eacute;, couramment utilis&eacute; et lisible par machine</li>
+                    <li><strong>Droit d&rsquo;opposition</strong> (article 21) &mdash; vous opposer au traitement de vos donn&eacute;es pour des motifs l&eacute;gitimes</li>
+                    <li><strong>Droit &agrave; la limitation du traitement</strong> (article 18) &mdash; demander la limitation du traitement dans certains cas</li>
+                    <li><strong>Droit de retrait du consentement</strong> &mdash; retirer votre consentement &agrave; tout moment, sans affecter la lic&eacute;it&eacute; du traitement effectu&eacute; avant le retrait</li>
+                </ul>
+                <p>Pour exercer vos droits, contactez-nous &agrave; : <a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a></p>
+                <p>Nous nous engageons &agrave; r&eacute;pondre &agrave; votre demande dans un d&eacute;lai d&rsquo;un mois &agrave; compter de sa r&eacute;ception.</p>
+                <p>En cas de r&eacute;ponse insatisfaisante, vous avez le droit d&rsquo;introduire une r&eacute;clamation aupr&egrave;s de la CNIL (Commission Nationale de l&rsquo;Informatique et des Libert&eacute;s) : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a></p>
+
+                <!-- 8. Cookies -->
+                <h2>8. Cookies</h2>
+                <p>Le Site utilise des cookies, c&rsquo;est-&agrave;-dire de petits fichiers texte stock&eacute;s sur votre terminal lors de votre visite.</p>
+
+                <h3>8.1 Cookies strictement n&eacute;cessaires</h3>
+                <p>Ces cookies sont indispensables au fonctionnement du Site. Ils ne n&eacute;cessitent pas votre consentement et ne peuvent pas &ecirc;tre d&eacute;sactiv&eacute;s.</p>
+
+                <h3>8.2 Cookies analytiques</h3>
+                <p>Ces cookies nous permettent de mesurer l&rsquo;audience du Site (nombre de visiteurs, pages les plus consult&eacute;es, dur&eacute;e des visites). Les donn&eacute;es collect&eacute;es sont anonymis&eacute;es. Ces cookies ne sont d&eacute;pos&eacute;s qu&rsquo;avec votre consentement.</p>
+
+                <h3>8.3 G&eacute;rer vos cookies</h3>
+                <p>Vous pouvez &agrave; tout moment configurer vos pr&eacute;f&eacute;rences en mati&egrave;re de cookies via les param&egrave;tres de votre navigateur :</p>
+                <ul>
+                    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+                    <li><a href="https://support.mozilla.org/fr/kb/cookies-informations-sites-enregistrent" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+                    <li><a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari</a></li>
+                    <li><a href="https://support.microsoft.com/fr-fr/microsoft-edge/supprimer-les-cookies-dans-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+                </ul>
+                <p>La d&eacute;sactivation de certains cookies peut affecter votre exp&eacute;rience de navigation sur le Site.</p>
+
+                <!-- 9. Sécurité -->
+                <h2>9. S&eacute;curit&eacute; des donn&eacute;es</h2>
+                <p>Nous mettons en oeuvre les mesures techniques et organisationnelles appropri&eacute;es pour prot&eacute;ger vos donn&eacute;es personnelles contre tout acc&egrave;s non autoris&eacute;, perte, destruction ou alt&eacute;ration :</p>
+                <ul>
+                    <li>Chiffrement des communications (HTTPS / TLS)</li>
+                    <li>Acc&egrave;s restreint aux donn&eacute;es personnelles (principe du moindre privil&egrave;ge)</li>
+                    <li>H&eacute;bergement s&eacute;curis&eacute; avec sauvegardes r&eacute;guli&egrave;res</li>
+                    <li>Mises &agrave; jour de s&eacute;curit&eacute; appliqu&eacute;es sans d&eacute;lai</li>
+                </ul>
+
+                <!-- 10. Modifications -->
+                <h2>10. Modifications de la politique</h2>
+                <p>Nous nous r&eacute;servons le droit de modifier la pr&eacute;sente politique de confidentialit&eacute; &agrave; tout moment. Toute modification sera publi&eacute;e sur cette page avec la date de mise &agrave; jour. Nous vous invitons &agrave; consulter r&eacute;guli&egrave;rement cette page.</p>
+                <p>En cas de modification substantielle, nous nous efforcerons de vous en informer par tout moyen appropri&eacute;.</p>
+
+                <!-- 11. Contact -->
+                <h2>11. Contact</h2>
+                <p>Pour toute question relative &agrave; la pr&eacute;sente politique de confidentialit&eacute; ou &agrave; la protection de vos donn&eacute;es personnelles, vous pouvez nous contacter :</p>
+                <ul>
+                    <li><strong>Email :</strong> <a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a></li>
+                    <li><strong>WhatsApp :</strong> <a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer">07 56 88 12 46</a></li>
+                    <li><strong>Adresse :</strong> 48 rue Saint Jacques, 13006 Marseille, France</li>
+                </ul>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand"><div class="footer-logo">TRAFFIK.</div><p class="footer-tagline">Cabinet de consulting en automatisation et intelligence artificielle.</p></div>
+                <div class="footer-col"><h5>Navigation</h5><ul role="list"><li><a href="/#services">Services</a></li><li><a href="/#resultats">R&eacute;sultats</a></li><li><a href="/#approche">Approche</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/blog">Blog</a></li></ul></div>
+                <div class="footer-col"><h5>Contact</h5><ul role="list"><li><a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer">07 56 88 12 46 (WhatsApp)</a></li><li><a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a></li></ul></div>
+                <div class="footer-col"><h5>L&eacute;gal</h5><ul role="list"><li><a href="/mentions-legales">Mentions l&eacute;gales</a></li><li><a href="/politique-de-confidentialite">Politique de confidentialit&eacute;</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Traffik. Tous droits r&eacute;serv&eacute;s.</p><p>SIRET 101 281 145 00017 &mdash; Marseille, France</p></div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // Mobile nav toggle
+        var toggle = document.querySelector('.nav-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', function() {
+                var isOpen = navLinks.classList.toggle('open');
+                toggle.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', isOpen);
+                toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+            });
+        }
+    })();
+    </script>
+</body>
+</html>

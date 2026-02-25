@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales — Traffik</title>
+    <meta name="description" content="Mentions légales du site traffik-web.fr. Informations sur l'éditeur, l'hébergeur, la propriété intellectuelle et la protection des données personnelles.">
+    <link rel="canonical" href="https://traffik-web.fr/mentions-legales/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mentions Légales — Traffik">
+    <meta property="og:description" content="Mentions légales du site traffik-web.fr.">
+    <meta property="og:url" content="https://traffik-web.fr/mentions-legales/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Traffik">
+    <meta property="og:image" content="https://traffik-web.fr/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mentions Légales — Traffik">
+    <meta name="twitter:description" content="Mentions légales du site traffik-web.fr.">
+    <meta name="twitter:image" content="https://traffik-web.fr/og-image.png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #08080B;
+            --text-heading: #FAFAFC;
+            --text-primary: #C5C5CC;
+            --text-secondary: #8888A0;
+            --text-muted: #7E7E98;
+            --text-faint: #5A5A70;
+            --accent: #8080A0;
+            --accent-light: #D0D0DC;
+            --border-subtle: #1E1E2A;
+            --font: 'Outfit', sans-serif;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            font-family: var(--font); font-weight: 400;
+            background: var(--bg); color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* =========================================== GLOBAL ATMOSPHERE */
+        .global-noise {
+            position: fixed; inset: 0; z-index: 1; pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+        }
+        .global-glow {
+            position: fixed; pointer-events: none; border-radius: 50%; filter: blur(120px); z-index: 0;
+        }
+        .gg1 { width: 60vw; height: 60vw; max-width: 800px; max-height: 800px; top: -10%; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(128,128,180,0.04) 0%, transparent 70%); }
+        .gg2 { width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; top: 50%; right: -10%; background: radial-gradient(circle, rgba(140,130,170,0.025) 0%, transparent 70%); }
+
+        .gt { background: linear-gradient(180deg, #FAFAFC 0%, #7A7A96 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .skip-link { position: absolute; top: -100%; left: 16px; z-index: 10000; padding: 12px 24px; background: var(--text-heading); color: var(--bg); font-weight: 600; font-size: 0.9rem; border-radius: 0 0 8px 8px; text-decoration: none; transition: top 0.2s ease; }
+        .skip-link:focus { top: 0; }
+
+        /* =========================================== NAVBAR */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 clamp(1.5rem,4vw,3rem); height: 64px;
+            background: rgba(8,8,11,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.03);
+        }
+        .nav-logo { font-size: clamp(1.1rem,1.6vw,1.3rem); font-weight: 900; color: var(--text-heading); text-decoration: none; letter-spacing: -0.03em; }
+        .nav-links { display: flex; align-items: center; gap: clamp(1rem,2.5vw,2rem); list-style: none; }
+        .nav-links a { font-size: clamp(0.8rem,1vw,0.9rem); font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s ease; position: relative; }
+        .nav-links a:hover { color: var(--text-heading); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent-light); transform: scaleX(0); transition: transform 0.3s ease; }
+        .nav-cta { display: inline-flex; align-items: center; gap: 6px; background: rgba(250,250,252,0.07); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: var(--text-heading); font-family: var(--font); font-weight: 600; font-size: clamp(0.78rem,1vw,0.88rem); padding: 8px 20px; border: 1px solid rgba(250,250,252,0.07); border-radius: 100px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; min-height: 44px; }
+        .nav-cta:hover { background: rgba(250,250,252,0.14); border-color: rgba(250,250,252,0.14); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; width: 44px; height: 44px; align-items: center; justify-content: center; }
+        .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text-heading); position: relative; transition: background 0.2s ease; }
+        .nav-toggle span::before, .nav-toggle span::after { content: ''; position: absolute; left: 0; width: 100%; height: 2px; background: var(--text-heading); transition: transform 0.3s ease; }
+        .nav-toggle span::before { top: -6px; } .nav-toggle span::after { top: 6px; }
+        .nav-toggle.open span { background: transparent; }
+        .nav-toggle.open span::before { transform: rotate(45deg) translate(4px,4px); }
+        .nav-toggle.open span::after { transform: rotate(-45deg) translate(4px,-4px); }
+        @media (max-width: 768px) {
+            .nav-toggle { display: flex; }
+            .nav-links { position: fixed; top: 64px; left: 0; right: 0; flex-direction: column; background: rgba(8,8,11,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 1.5rem; gap: 0; transform: translateY(-120%); transition: transform 0.4s var(--ease); border-bottom: 1px solid rgba(255,255,255,0.03); }
+            .nav-links.open { transform: translateY(0); }
+            .nav-links li { width: 100%; } .nav-links a { display: block; padding: 14px 0; font-size: 1rem; }
+            .nav-links a::after { display: none; } .nav-links .nav-cta { margin-top: 8px; text-align: center; justify-content: center; }
+        }
+
+        /* =========================================== LEGAL CONTENT */
+        .legal-page { position: relative; z-index: 2; }
+        .legal-inner {
+            max-width: 800px; margin: 0 auto;
+            padding: calc(64px + clamp(3rem,6vw,5rem)) clamp(1.5rem,4vw,3rem) clamp(4rem,8vw,6rem);
+        }
+        .legal-header { margin-bottom: clamp(3rem,6vw,4rem); }
+        .legal-header .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: clamp(0.82rem,1vw,0.9rem); font-weight: 500;
+            color: var(--text-muted); text-decoration: none;
+            transition: color 0.2s ease; margin-bottom: clamp(1.5rem,3vw,2rem);
+        }
+        .legal-header .back-link:hover { color: var(--text-heading); }
+        .legal-header h1 {
+            font-size: clamp(2rem,5vw,3.2rem); font-weight: 900;
+            line-height: 1.1; letter-spacing: -0.03em;
+        }
+        .legal-header .legal-updated {
+            font-size: clamp(0.82rem,1vw,0.9rem); color: var(--text-muted);
+            font-weight: 300; margin-top: clamp(0.8rem,1.5vw,1rem);
+        }
+
+        .legal-section { margin-bottom: clamp(2.5rem,5vw,3.5rem); }
+        .legal-section h2 {
+            font-size: clamp(1.15rem,1.8vw,1.4rem); font-weight: 700;
+            color: var(--text-heading); letter-spacing: -0.02em;
+            margin-bottom: clamp(0.8rem,1.5vw,1.2rem);
+            padding-bottom: clamp(0.5rem,1vw,0.75rem);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .legal-section p {
+            font-size: clamp(0.88rem,1.1vw,0.98rem); line-height: 1.75;
+            color: var(--text-primary); font-weight: 300;
+            margin-bottom: 0.75rem;
+        }
+        .legal-section p:last-child { margin-bottom: 0; }
+        .legal-section ul {
+            list-style: none; padding-left: 0; margin-top: 0.5rem;
+        }
+        .legal-section ul li {
+            font-size: clamp(0.88rem,1.1vw,0.98rem); line-height: 1.75;
+            color: var(--text-primary); font-weight: 300;
+            padding-left: 1.2rem; position: relative; margin-bottom: 0.4rem;
+        }
+        .legal-section ul li::before {
+            content: ''; position: absolute; left: 0; top: 0.65em;
+            width: 5px; height: 5px; border-radius: 50%;
+            background: var(--accent);
+        }
+        .legal-section a {
+            color: var(--accent-light); text-decoration: none;
+            border-bottom: 1px solid rgba(208,208,220,0.2);
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .legal-section a:hover { color: var(--text-heading); border-color: var(--text-heading); }
+        .legal-section strong { font-weight: 600; color: var(--text-heading); }
+
+        /* =========================================== FOOTER */
+        .site-footer { position: relative; z-index: 2; }
+        .site-footer::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; padding: clamp(2.5rem,5vw,4rem) clamp(1.5rem,4vw,3rem) clamp(1.5rem,3vw,2rem); }
+        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(1.5rem,3vw,3rem); margin-bottom: clamp(2rem,4vw,3rem); }
+        .footer-brand .footer-logo { font-size: clamp(1.2rem,1.8vw,1.5rem); font-weight: 900; color: var(--text-heading); letter-spacing: -0.03em; }
+        .footer-brand .footer-tagline { font-size: clamp(0.82rem,1vw,0.9rem); color: var(--text-muted); font-weight: 300; margin-top: 8px; line-height: 1.55; max-width: 260px; }
+        .footer-col h5 { font-size: clamp(0.72rem,0.9vw,0.82rem); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: clamp(0.8rem,1.5vw,1.2rem); }
+        .footer-col ul { list-style: none; } .footer-col li { margin-bottom: 8px; }
+        .footer-col a { font-size: clamp(0.82rem,1vw,0.92rem); color: var(--text-muted); text-decoration: none; transition: color 0.2s ease; }
+        .footer-col a:hover { color: var(--text-heading); }
+        .footer-col a:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: clamp(1rem,2vw,1.5rem); border-top: 1px solid rgba(255,255,255,0.03); flex-wrap: wrap; gap: 8px; }
+        .footer-bottom p { font-size: clamp(0.75rem,0.88vw,0.82rem); color: var(--text-muted); }
+
+        @media (max-width: 1024px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        /* =========================================== A11Y */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.2s !important; }
+            html { scroll-behavior: auto; }
+        }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+    </style>
+</head>
+<body>
+    <!-- Global atmosphere -->
+    <div class="global-noise" aria-hidden="true"></div>
+    <div class="global-glow gg1" aria-hidden="true"></div>
+    <div class="global-glow gg2" aria-hidden="true"></div>
+
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+    <nav class="site-nav" aria-label="Navigation principale">
+        <a href="/" class="nav-logo" aria-label="Traffik — Accueil">TRAFFIK.</a>
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu"><span></span></button>
+        <ul class="nav-links" id="nav-menu" role="list">
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#resultats">Résultats</a></li>
+            <li><a href="/#approche">Approche</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet." class="nav-cta" target="_blank" rel="noopener noreferrer" aria-label="Nous contacter sur WhatsApp">Nous contacter</a></li>
+        </ul>
+    </nav>
+
+    <main id="main" class="legal-page">
+        <div class="legal-inner">
+
+            <header class="legal-header">
+                <a href="/" class="back-link">&#8592; Retour à l'accueil</a>
+                <h1><span class="gt">Mentions Légales</span></h1>
+                <p class="legal-updated">Dernière mise à jour : 24 février 2026</p>
+            </header>
+
+            <section class="legal-section">
+                <h2>1. Éditeur du site</h2>
+                <p>Le site <strong>traffik-web.fr</strong> est édité par :</p>
+                <ul>
+                    <li><strong>Nom commercial :</strong> Traffik</li>
+                    <li><strong>Forme juridique :</strong> Entrepreneur individuel</li>
+                    <li><strong>Dirigeant / Responsable de la publication :</strong> Hossame-Eddine Laib</li>
+                    <li><strong>SIRET :</strong> 101 281 145 00017</li>
+                    <li><strong>Code APE :</strong> 62.01Z — Programmation informatique</li>
+                    <li><strong>Adresse :</strong> 48 rue Saint Jacques, 13006 Marseille, France</li>
+                    <li><strong>Email :</strong> <a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a></li>
+                    <li><strong>Téléphone (WhatsApp) :</strong> <a href="https://wa.me/33756881246">07 56 88 12 46</a></li>
+                    <li><strong>Site web :</strong> <a href="https://traffik-web.fr">traffik-web.fr</a></li>
+                </ul>
+            </section>
+
+            <section class="legal-section">
+                <h2>2. Hébergeur</h2>
+                <p>Le site est hébergé par :</p>
+                <ul>
+                    <li><strong>Raison sociale :</strong> Vercel Inc.</li>
+                    <li><strong>Adresse :</strong> 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</li>
+                    <li><strong>Site web :</strong> <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a></li>
+                </ul>
+            </section>
+
+            <section class="legal-section">
+                <h2>3. Propriété intellectuelle</h2>
+                <p>L'ensemble du contenu du site traffik-web.fr (textes, images, graphismes, logo, icônes, sons, logiciels, etc.) est la propriété exclusive de Traffik ou de ses partenaires et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.</p>
+                <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable de Traffik.</p>
+                <p>Toute exploitation non autorisée du site ou de l'un quelconque des éléments qu'il contient sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de la Propriété Intellectuelle.</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>4. Données personnelles</h2>
+                <p>Traffik s'engage à respecter la réglementation en vigueur applicable au traitement de données à caractère personnel, et notamment le Règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016 (ci-après le « RGPD »).</p>
+                <p>Les informations recueillies via le site traffik-web.fr font l'objet d'un traitement informatique destiné à répondre aux demandes des utilisateurs et à améliorer les services proposés.</p>
+                <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression, de limitation, d'opposition et de portabilité de vos données personnelles. Vous pouvez exercer ces droits en nous contactant à l'adresse : <a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a>.</p>
+                <p>Pour plus d'informations sur la manière dont nous traitons vos données, veuillez consulter notre <a href="/politique-de-confidentialite">Politique de confidentialité</a>.</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>5. Cookies</h2>
+                <p>Le site traffik-web.fr peut être amené à utiliser des cookies afin d'améliorer l'expérience utilisateur, de réaliser des statistiques de visites et de mesurer l'audience du site.</p>
+                <p>Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, tablette, smartphone) lors de la visite d'un site web. Il permet de stocker des informations relatives à votre navigation.</p>
+                <p>Vous pouvez à tout moment choisir de désactiver les cookies en paramétrant votre navigateur. Toutefois, la désactivation de certains cookies peut affecter votre expérience de navigation sur le site.</p>
+                <p>Conformément à la législation en vigueur, les cookies strictement nécessaires au fonctionnement du site ne requièrent pas votre consentement. Pour les autres types de cookies (analytiques, publicitaires, etc.), votre consentement sera recueilli préalablement à leur dépôt.</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>6. Limitation de responsabilité</h2>
+                <p>Traffik s'efforce de fournir sur le site traffik-web.fr des informations aussi précises que possible. Toutefois, Traffik ne pourra être tenu responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu'elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.</p>
+                <p>Toutes les informations indiquées sur le site sont données à titre indicatif et sont susceptibles d'évoluer. Par ailleurs, les renseignements figurant sur le site ne sont pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne.</p>
+                <p>Traffik ne pourra être tenu responsable des dommages directs ou indirects causés au matériel de l'utilisateur lors de l'accès au site traffik-web.fr, résultant soit de l'utilisation d'un matériel ne répondant pas aux spécifications techniques requises, soit de l'apparition d'un bug ou d'une incompatibilité.</p>
+                <p>Traffik ne pourra également être tenu responsable des dommages indirects (tels qu'une perte de marché ou la perte d'une chance) consécutifs à l'utilisation du site.</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>7. Liens hypertextes</h2>
+                <p>Le site traffik-web.fr peut contenir des liens hypertextes vers d'autres sites internet. Traffik n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou aux éventuels traitements de données personnelles qu'ils effectuent.</p>
+                <p>La mise en place de liens hypertextes vers le site traffik-web.fr est soumise à l'autorisation préalable et écrite de Traffik.</p>
+            </section>
+
+            <section class="legal-section">
+                <h2>8. Droit applicable</h2>
+                <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français seront seuls compétents pour en connaître.</p>
+                <p>Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter à l'adresse : <a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a>.</p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand"><div class="footer-logo">TRAFFIK.</div><p class="footer-tagline">Cabinet de consulting en automatisation et intelligence artificielle.</p></div>
+                <div class="footer-col"><h5>Navigation</h5><ul role="list"><li><a href="/#services">Services</a></li><li><a href="/#resultats">Résultats</a></li><li><a href="/#approche">Approche</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/blog">Blog</a></li></ul></div>
+                <div class="footer-col"><h5>Contact</h5><ul role="list"><li><a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer">07 56 88 12 46 (WhatsApp)</a></li><li><a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a></li></ul></div>
+                <div class="footer-col"><h5>Légal</h5><ul role="list"><li><a href="/mentions-legales">Mentions légales</a></li><li><a href="/politique-de-confidentialite">Politique de confidentialité</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Traffik. Tous droits réservés.</p><p>SIRET 101 281 145 00017 — Marseille, France</p></div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+        // Mobile nav toggle
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-links');
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                var isOpen = menu.classList.toggle('open');
+                toggle.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', isOpen);
+                toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+            });
+        }
+    })();
+    </script>
+</body>
+</html>

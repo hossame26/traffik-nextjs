@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Traffik | Automatisation, IA & Solutions SaaS</title>
+    <meta name="description" content="Articles et ressources sur l'automatisation des processus, l'intelligence artificielle et les solutions SaaS sur mesure pour les entreprises.">
+    <meta name="keywords" content="blog automatisation, articles IA entreprise, SaaS sur mesure, transformation digitale, consulting automatisation">
+    <link rel="canonical" href="https://traffik-web.fr/blog/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog — Traffik | Automatisation, IA & Solutions SaaS">
+    <meta property="og:description" content="Articles et ressources sur l'automatisation, l'IA et les solutions SaaS sur mesure pour les entreprises.">
+    <meta property="og:url" content="https://traffik-web.fr/blog/">
+    <meta property="og:image" content="https://traffik-web.fr/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Traffik">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog — Traffik | Automatisation, IA & Solutions SaaS">
+    <meta name="twitter:description" content="Articles et ressources sur l'automatisation, l'IA et les solutions SaaS sur mesure.">
+    <meta name="twitter:image" content="https://traffik-web.fr/og-image.png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"CollectionPage","@id":"https://traffik-web.fr/blog/#webpage","name":"Blog — Traffik","description":"Articles et ressources sur l'automatisation des processus, l'intelligence artificielle et les solutions SaaS sur mesure pour les entreprises.","url":"https://traffik-web.fr/blog/","isPartOf":{"@type":"WebSite","@id":"https://traffik-web.fr/#website","name":"Traffik","url":"https://traffik-web.fr"},"publisher":{"@type":"LocalBusiness","@id":"https://traffik-web.fr/#business","name":"Traffik","url":"https://traffik-web.fr","email":"contact@traffik-web.fr"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://traffik-web.fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://traffik-web.fr/blog/"}]}}
+    </script>
+
+    <style>
+        :root {
+            --bg: #08080B;
+            --text-heading: #FAFAFC;
+            --text-primary: #C5C5CC;
+            --text-secondary: #8888A0;
+            --text-muted: #7E7E98;
+            --text-faint: #5A5A70;
+            --accent: #8080A0;
+            --accent-light: #D0D0DC;
+            --border-subtle: #1E1E2A;
+            --font: 'Outfit', sans-serif;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            font-family: var(--font); font-weight: 400;
+            background: var(--bg); color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* =========================================== GLOBAL ATMOSPHERE */
+        .global-noise {
+            position: fixed; inset: 0; z-index: 1; pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+        }
+        .global-glow {
+            position: fixed; pointer-events: none; border-radius: 50%; filter: blur(120px); z-index: 0;
+        }
+        .gg1 { width: 60vw; height: 60vw; max-width: 800px; max-height: 800px; top: -10%; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(128,128,180,0.04) 0%, transparent 70%); }
+        .gg2 { width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; top: 50%; right: -10%; background: radial-gradient(circle, rgba(140,130,170,0.025) 0%, transparent 70%); }
+
+        .skip-link { position: absolute; top: -100%; left: 16px; z-index: 10000; padding: 12px 24px; background: var(--text-heading); color: var(--bg); font-weight: 600; font-size: 0.9rem; border-radius: 0 0 8px 8px; text-decoration: none; transition: top 0.2s ease; }
+        .skip-link:focus { top: 0; }
+
+        .gt { background: linear-gradient(180deg, #FAFAFC 0%, #7A7A96 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* =========================================== REVEAL */
+        .rv { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+        .rv.visible { opacity: 1; transform: translateY(0); }
+        .rv.d1 { transition-delay: .12s; } .rv.d2 { transition-delay: .24s; }
+        .rv.d3 { transition-delay: .36s; } .rv.d4 { transition-delay: .48s; }
+        .rv.d5 { transition-delay: .60s; } .rv.d6 { transition-delay: .72s; }
+
+        /* =========================================== NAVBAR */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 clamp(1.5rem,4vw,3rem); height: 64px;
+            background: transparent; transition: background 0.5s ease, box-shadow 0.5s ease;
+        }
+        .site-nav.scrolled { background: rgba(8,8,11,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(255,255,255,0.03); }
+        .nav-logo { font-size: clamp(1.1rem,1.6vw,1.3rem); font-weight: 900; color: var(--text-heading); text-decoration: none; letter-spacing: -0.03em; }
+        .nav-links { display: flex; align-items: center; gap: clamp(1rem,2.5vw,2rem); list-style: none; }
+        .nav-links a { font-size: clamp(0.8rem,1vw,0.9rem); font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s ease; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-heading); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent-light); transform: scaleX(0); transition: transform 0.3s ease; }
+        .nav-links a.active::after { transform: scaleX(1); }
+        .nav-cta { display: inline-flex; align-items: center; gap: 6px; background: rgba(250,250,252,0.07); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: var(--text-heading); font-family: var(--font); font-weight: 600; font-size: clamp(0.78rem,1vw,0.88rem); padding: 8px 20px; border: 1px solid rgba(250,250,252,0.07); border-radius: 100px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; min-height: 44px; }
+        .nav-cta:hover { background: rgba(250,250,252,0.14); border-color: rgba(250,250,252,0.14); }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; width: 44px; height: 44px; align-items: center; justify-content: center; }
+        .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text-heading); position: relative; transition: background 0.2s ease; }
+        .nav-toggle span::before, .nav-toggle span::after { content: ''; position: absolute; left: 0; width: 100%; height: 2px; background: var(--text-heading); transition: transform 0.3s ease; }
+        .nav-toggle span::before { top: -6px; } .nav-toggle span::after { top: 6px; }
+        .nav-toggle.open span { background: transparent; }
+        .nav-toggle.open span::before { transform: rotate(45deg) translate(4px,4px); }
+        .nav-toggle.open span::after { transform: rotate(-45deg) translate(4px,-4px); }
+        @media (max-width: 768px) {
+            .nav-toggle { display: flex; }
+            .nav-links { position: fixed; top: 64px; left: 0; right: 0; flex-direction: column; background: rgba(8,8,11,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 1.5rem; gap: 0; transform: translateY(-120%); transition: transform 0.4s var(--ease); border-bottom: 1px solid rgba(255,255,255,0.03); }
+            .nav-links.open { transform: translateY(0); }
+            .nav-links li { width: 100%; } .nav-links a { display: block; padding: 14px 0; font-size: 1rem; }
+            .nav-links a::after { display: none; } .nav-links .nav-cta { margin-top: 8px; text-align: center; justify-content: center; }
+        }
+
+        /* =========================================== SECTIONS */
+        .section { position: relative; z-index: 2; }
+        .section-inner { max-width: 1200px; margin: 0 auto; padding: clamp(5rem,12vw,9rem) clamp(1.5rem,4vw,3rem); position: relative; }
+        .eyebrow { font-size: clamp(0.72rem,0.95vw,0.85rem); font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: clamp(0.8rem,2vw,1.5rem); }
+        .section-title { font-size: clamp(1.8rem,5vw,3.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; color: var(--text-heading); }
+        .section-subtitle { font-size: clamp(0.88rem,1.25vw,1.05rem); color: var(--text-secondary); max-width: 560px; line-height: 1.7; margin-top: clamp(0.6rem,1.5vw,1rem); font-weight: 300; }
+
+        /* =========================================== BLOG HERO */
+        .blog-hero { padding-top: calc(64px + clamp(3rem,8vw,6rem)); padding-bottom: clamp(2rem,5vw,4rem); text-align: center; }
+        .blog-hero .section-subtitle { margin-left: auto; margin-right: auto; }
+
+        /* =========================================== BLOG GRID */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(1rem,2vw,1.5rem);
+            margin-top: clamp(1rem,3vw,2rem);
+        }
+
+        .blog-card {
+            background: rgba(255,255,255,0.015);
+            border: 1px solid rgba(255,255,255,0.035);
+            border-radius: 16px;
+            padding: clamp(1.5rem,2.5vw,2.2rem);
+            transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-card:hover {
+            border-color: rgba(128,128,180,0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+            background: rgba(255,255,255,0.025);
+        }
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .blog-card:hover::before { opacity: 0.5; }
+
+        .blog-card-tag {
+            display: inline-block;
+            font-size: clamp(0.68rem,0.85vw,0.78rem);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            background: rgba(128,128,160,0.06);
+            border: 1px solid rgba(128,128,160,0.1);
+            border-radius: 100px;
+            padding: 4px 12px;
+            margin-bottom: clamp(0.8rem,1.2vw,1rem);
+            width: fit-content;
+        }
+
+        .blog-card h2 {
+            font-size: clamp(1.1rem,1.6vw,1.35rem);
+            font-weight: 700;
+            color: var(--text-heading);
+            line-height: 1.25;
+            margin-bottom: clamp(0.5rem,1vw,0.8rem);
+            letter-spacing: -0.02em;
+        }
+
+        .blog-card-excerpt {
+            font-size: clamp(0.85rem,1.1vw,0.95rem);
+            color: var(--text-secondary);
+            line-height: 1.65;
+            font-weight: 300;
+            margin-bottom: clamp(1rem,1.5vw,1.2rem);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: clamp(0.8rem,1.2vw,1rem);
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .blog-card-info {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.6rem,1vw,1rem);
+        }
+
+        .blog-card-date,
+        .blog-card-read {
+            font-size: clamp(0.75rem,0.9vw,0.84rem);
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .blog-card-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--text-faint);
+            flex-shrink: 0;
+        }
+
+        .blog-card-link {
+            font-size: clamp(0.82rem,1vw,0.92rem);
+            font-weight: 500;
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+        .blog-card:hover .blog-card-link { color: var(--text-heading); }
+
+        /* =========================================== FOOTER */
+        .site-footer { position: relative; z-index: 2; }
+        .site-footer::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; padding: clamp(2.5rem,5vw,4rem) clamp(1.5rem,4vw,3rem) clamp(1.5rem,3vw,2rem); }
+        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: clamp(1.5rem,3vw,3rem); margin-bottom: clamp(2rem,4vw,3rem); }
+        .footer-brand .footer-logo { font-size: clamp(1.2rem,1.8vw,1.5rem); font-weight: 900; color: var(--text-heading); letter-spacing: -0.03em; }
+        .footer-brand .footer-tagline { font-size: clamp(0.82rem,1vw,0.9rem); color: var(--text-muted); font-weight: 300; margin-top: 8px; line-height: 1.55; max-width: 260px; }
+        .footer-col h5 { font-size: clamp(0.72rem,0.9vw,0.82rem); font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: clamp(0.8rem,1.5vw,1.2rem); }
+        .footer-col ul { list-style: none; } .footer-col li { margin-bottom: 8px; }
+        .footer-col a { font-size: clamp(0.82rem,1vw,0.92rem); color: var(--text-muted); text-decoration: none; transition: color 0.2s ease; }
+        .footer-col a:hover { color: var(--text-heading); }
+        .footer-col a:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: clamp(1rem,2vw,1.5rem); border-top: 1px solid rgba(255,255,255,0.03); flex-wrap: wrap; gap: 8px; }
+        .footer-bottom p { font-size: clamp(0.75rem,0.88vw,0.82rem); color: var(--text-muted); }
+
+        /* =========================================== RESPONSIVE */
+        @media (max-width: 1024px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        /* =========================================== REDUCED MOTION */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.2s !important; }
+            html { scroll-behavior: auto; } .rv { opacity: 1; transform: none; }
+        }
+
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+    </style>
+</head>
+<body>
+    <!-- Global atmosphere -->
+    <div class="global-noise" aria-hidden="true"></div>
+    <div class="global-glow gg1" aria-hidden="true"></div>
+    <div class="global-glow gg2" aria-hidden="true"></div>
+
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+    <nav class="site-nav scrolled" aria-label="Navigation principale">
+        <a href="/" class="nav-logo" aria-label="Traffik — Accueil">TRAFFIK.</a>
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu"><span></span></button>
+        <ul class="nav-links" id="nav-menu" role="list">
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#resultats">Résultats</a></li>
+            <li><a href="/#approche">Approche</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/blog" class="active">Blog</a></li>
+            <li><a href="https://wa.me/33756881246?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet." class="nav-cta" target="_blank" rel="noopener noreferrer" aria-label="Nous contacter sur WhatsApp">Nous contacter</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+
+        <!-- Blog Hero -->
+        <section class="section blog-hero" aria-label="Blog">
+            <div class="section-inner">
+                <p class="eyebrow rv">BLOG</p>
+                <h1 class="section-title rv d1"><span class="gt">Insights & Ressources</span></h1>
+                <p class="section-subtitle rv d2">Articles sur l'automatisation, l'IA et la transformation digitale des entreprises.</p>
+
+                <!-- Blog Grid -->
+                <div class="blog-grid">
+
+                    <a href="/blog/chatbot-ia-pme-guide-complet/" class="blog-card rv d3">
+                        <span class="blog-card-tag">Intelligence Artificielle</span>
+                        <h2>Chatbot IA pour PME : le guide complet 2026</h2>
+                        <p class="blog-card-excerpt">Les chatbots IA ne sont plus réservés aux grandes entreprises. Comment automatiser votre service client et qualifier vos leads.</p>
+                        <div class="blog-card-meta">
+                            <div class="blog-card-info">
+                                <span class="blog-card-date">24 Fév 2026</span>
+                                <span class="blog-card-dot" aria-hidden="true"></span>
+                                <span class="blog-card-read">7 min de lecture</span>
+                            </div>
+                            <span class="blog-card-link">Lire l'article &#8594;</span>
+                        </div>
+                    </a>
+
+                    <a href="/blog/automatiser-processus-entreprise/" class="blog-card rv d3">
+                        <span class="blog-card-tag">Automatisation</span>
+                        <h2>Comment automatiser ses processus en entreprise</h2>
+                        <p class="blog-card-excerpt">Guide complet pour identifier et automatiser les tâches répétitives. ROI, outils, méthodologie et exemples concrets.</p>
+                        <div class="blog-card-meta">
+                            <div class="blog-card-info">
+                                <span class="blog-card-date">24 Fév 2026</span>
+                                <span class="blog-card-dot" aria-hidden="true"></span>
+                                <span class="blog-card-read">9 min de lecture</span>
+                            </div>
+                            <span class="blog-card-link">Lire l'article &#8594;</span>
+                        </div>
+                    </a>
+
+                    <a href="/blog/intelligence-artificielle-pme/" class="blog-card rv d4">
+                        <span class="blog-card-tag">IA</span>
+                        <h2>L'intelligence artificielle au service des PME</h2>
+                        <p class="blog-card-excerpt">Comment l'IA peut concrètement aider les petites et moyennes entreprises au quotidien. Cas d'usage et outils.</p>
+                        <div class="blog-card-meta">
+                            <div class="blog-card-info">
+                                <span class="blog-card-date">24 Fév 2026</span>
+                                <span class="blog-card-dot" aria-hidden="true"></span>
+                                <span class="blog-card-read">8 min de lecture</span>
+                            </div>
+                            <span class="blog-card-link">Lire l'article &#8594;</span>
+                        </div>
+                    </a>
+
+                    <a href="/blog/saas-sur-mesure-vs-solution-generique/" class="blog-card rv d4">
+                        <span class="blog-card-tag">SaaS</span>
+                        <h2>SaaS sur mesure vs solution générique : comment choisir ?</h2>
+                        <p class="blog-card-excerpt">Faut-il investir dans un outil sur mesure ou utiliser une solution standard ? Comparatif détaillé pour 2026.</p>
+                        <div class="blog-card-meta">
+                            <div class="blog-card-info">
+                                <span class="blog-card-date">24 Fév 2026</span>
+                                <span class="blog-card-dot" aria-hidden="true"></span>
+                                <span class="blog-card-read">7 min de lecture</span>
+                            </div>
+                            <span class="blog-card-link">Lire l'article &#8594;</span>
+                        </div>
+                    </a>
+
+                    <a href="/blog/react-nextjs-avantages-entreprise/" class="blog-card rv d5">
+                        <span class="blog-card-tag">Développement</span>
+                        <h2>React et Next.js : pourquoi nous développons vos outils avec ces technologies</h2>
+                        <p class="blog-card-excerpt">Découvrez pourquoi React et Next.js sont les technologies idéales pour développer des applications SaaS performantes.</p>
+                        <div class="blog-card-meta">
+                            <div class="blog-card-info">
+                                <span class="blog-card-date">10 Fév 2026</span>
+                                <span class="blog-card-dot" aria-hidden="true"></span>
+                                <span class="blog-card-read">8 min de lecture</span>
+                            </div>
+                            <span class="blog-card-link">Lire l'article &#8594;</span>
+                        </div>
+                    </a>
+
+                    <a href="/blog/optimiser-vitesse-site-web/" class="blog-card rv d5">
+                        <span class="blog-card-tag">Performance</span>
+                        <h2>Comment optimiser la vitesse de votre site web : 10 techniques</h2>
+                        <p class="blog-card-excerpt">10 techniques concrètes pour améliorer la vitesse de chargement de votre site et booster votre SEO.</p>
+                        <div class="blog-card-meta">
+                            <div class="blog-card-info">
+                                <span class="blog-card-date">9 Fév 2026</span>
+                                <span class="blog-card-dot" aria-hidden="true"></span>
+                                <span class="blog-card-read">7 min de lecture</span>
+                            </div>
+                            <span class="blog-card-link">Lire l'article &#8594;</span>
+                        </div>
+                    </a>
+
+                    <a href="/blog/referencement-seo-debutant/" class="blog-card rv d6">
+                        <span class="blog-card-tag">SEO</span>
+                        <h2>SEO pour débutants : guide complet du référencement naturel 2026</h2>
+                        <p class="blog-card-excerpt">Apprenez les bases du référencement naturel : mots-clés, contenu, technique, backlinks. Tout pour apparaître en première page.</p>
+                        <div class="blog-card-meta">
+                            <div class="blog-card-info">
+                                <span class="blog-card-date">4 Fév 2026</span>
+                                <span class="blog-card-dot" aria-hidden="true"></span>
+                                <span class="blog-card-read">11 min de lecture</span>
+                            </div>
+                            <span class="blog-card-link">Lire l'article &#8594;</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand"><div class="footer-logo">TRAFFIK.</div><p class="footer-tagline">Cabinet de consulting en automatisation et intelligence artificielle.</p></div>
+                <div class="footer-col"><h5>Navigation</h5><ul role="list"><li><a href="/#services">Services</a></li><li><a href="/#resultats">Résultats</a></li><li><a href="/#approche">Approche</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/blog">Blog</a></li></ul></div>
+                <div class="footer-col"><h5>Contact</h5><ul role="list"><li><a href="https://wa.me/33756881246" target="_blank" rel="noopener noreferrer">07 56 88 12 46 (WhatsApp)</a></li><li><a href="mailto:contact@traffik-web.fr">contact@traffik-web.fr</a></li></ul></div>
+                <div class="footer-col"><h5>Légal</h5><ul role="list"><li><a href="/mentions-legales">Mentions légales</a></li><li><a href="/politique-de-confidentialite">Politique de confidentialité</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Traffik. Tous droits réservés.</p><p>SIRET 101 281 145 00017 — Marseille, France</p></div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+
+        /* ============================================
+           MOBILE NAV TOGGLE
+           ============================================ */
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.getElementById('nav-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                var open = toggle.classList.toggle('open');
+                menu.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', open);
+            });
+            menu.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    toggle.classList.remove('open');
+                    menu.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        /* ============================================
+           INTERSECTION OBSERVER — REVEAL ON SCROLL
+           ============================================ */
+        var rvEls = document.querySelectorAll('.rv');
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            rvEls.forEach(function(el) { observer.observe(el); });
+        } else {
+            rvEls.forEach(function(el) { el.classList.add('visible'); });
+        }
+    })();
+    </script>
+</body>
+</html>
