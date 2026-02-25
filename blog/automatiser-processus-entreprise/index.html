@@ -14,6 +14,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Traffik">
     <meta property="article:published_time" content="2026-02-24">
+    <meta property="article:modified_time" content="2026-02-24">
     <meta property="article:author" content="Traffik">
     <meta property="og:image" content="https://traffik-web.fr/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -21,6 +22,10 @@
     <meta name="twitter:description" content="Guide complet pour identifier et automatiser les t&acirc;ches r&eacute;p&eacute;titives en entreprise. ROI, outils, m&eacute;thodologie et exemples concrets.">
     <meta name="twitter:image" content="https://traffik-web.fr/og-image.png">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#08080B">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,26 +33,45 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Comment automatiser ses processus en entreprise : guide complet 2026",
-        "description": "Guide complet pour identifier et automatiser les t\u00e2ches r\u00e9p\u00e9titives en entreprise. ROI, outils, m\u00e9thodologie et exemples concrets.",
-        "datePublished": "2026-02-24",
-        "dateModified": "2026-02-24",
-        "author": {
-            "@type": "Organization",
-            "name": "Traffik",
-            "url": "https://traffik-web.fr"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Traffik",
-            "url": "https://traffik-web.fr"
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://traffik-web.fr/blog/automatiser-processus-entreprise/"
-        },
-        "keywords": ["automatisation", "processus", "productivit\u00e9", "transformation digitale"]
+        "@graph": [
+            {
+                "@type": "Article",
+                "headline": "Comment automatiser ses processus en entreprise : guide complet 2026",
+                "description": "Guide complet pour identifier et automatiser les t\u00e2ches r\u00e9p\u00e9titives en entreprise. ROI, outils, m\u00e9thodologie et exemples concrets.",
+                "image": "https://traffik-web.fr/og-image.png",
+                "datePublished": "2026-02-24",
+                "dateModified": "2026-02-24",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Traffik",
+                    "url": "https://traffik-web.fr"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Traffik",
+                    "url": "https://traffik-web.fr",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://traffik-web.fr/favicon.svg",
+                        "width": 64,
+                        "height": 64
+                    }
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://traffik-web.fr/blog/automatiser-processus-entreprise/"
+                },
+                "keywords": ["automatisation", "processus", "productivit\u00e9", "transformation digitale"]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://traffik-web.fr/"},
+                    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://traffik-web.fr/blog/"},
+                    {"@type": "ListItem", "position": 3, "name": "Comment automatiser ses processus en entreprise : guide complet 2026"}
+                ]
+            }
+        ]
     }
     </script>
 
@@ -151,6 +175,7 @@
             html { scroll-behavior: auto; }
         }
     </style>
+    <script defer data-domain="traffik-web.fr" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
     <!-- Global atmosphere -->

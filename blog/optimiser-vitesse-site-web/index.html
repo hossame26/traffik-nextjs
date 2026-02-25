@@ -14,6 +14,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Traffik">
     <meta property="article:published_time" content="2026-02-09">
+    <meta property="article:modified_time" content="2026-02-09">
     <meta property="article:author" content="Traffik">
     <meta property="article:section" content="Performance web">
     <meta property="og:image" content="https://traffik-web.fr/og-image.png">
@@ -22,6 +23,10 @@
     <meta name="twitter:description" content="Votre site est trop lent ? D&eacute;couvrez 10 techniques concr&egrave;tes pour optimiser la vitesse de chargement de votre site web et am&eacute;liorer votre SEO.">
     <meta name="twitter:image" content="https://traffik-web.fr/og-image.png">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#08080B">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -29,16 +34,39 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Comment optimiser la vitesse de votre site web : 10 techniques",
-        "description": "Votre site est trop lent ? D\u00e9couvrez 10 techniques concr\u00e8tes pour optimiser la vitesse de chargement de votre site web et am\u00e9liorer votre SEO.",
-        "datePublished": "2026-02-09",
-        "dateModified": "2026-02-09",
-        "author": { "@type": "Organization", "name": "Traffik", "url": "https://traffik-web.fr" },
-        "publisher": { "@type": "Organization", "name": "Traffik", "url": "https://traffik-web.fr" },
-        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://traffik-web.fr/blog/optimiser-vitesse-site-web/" },
-        "wordCount": 2400,
-        "articleSection": "Performance web"
+        "@graph": [
+            {
+                "@type": "Article",
+                "headline": "Comment optimiser la vitesse de votre site web : 10 techniques",
+                "description": "Votre site est trop lent ? D\u00e9couvrez 10 techniques concr\u00e8tes pour optimiser la vitesse de chargement de votre site web et am\u00e9liorer votre SEO.",
+                "image": "https://traffik-web.fr/og-image.png",
+                "datePublished": "2026-02-09",
+                "dateModified": "2026-02-09",
+                "author": { "@type": "Organization", "name": "Traffik", "url": "https://traffik-web.fr" },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Traffik",
+                    "url": "https://traffik-web.fr",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://traffik-web.fr/favicon.svg",
+                        "width": 64,
+                        "height": 64
+                    }
+                },
+                "mainEntityOfPage": { "@type": "WebPage", "@id": "https://traffik-web.fr/blog/optimiser-vitesse-site-web/" },
+                "wordCount": 2400,
+                "articleSection": "Performance web"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://traffik-web.fr/"},
+                    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://traffik-web.fr/blog/"},
+                    {"@type": "ListItem", "position": 3, "name": "Comment optimiser la vitesse de votre site web : 10 techniques"}
+                ]
+            }
+        ]
     }
     </script>
 
@@ -187,6 +215,7 @@
             html { scroll-behavior: auto; }
         }
     </style>
+    <script defer data-domain="traffik-web.fr" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
     <!-- Global atmosphere -->
